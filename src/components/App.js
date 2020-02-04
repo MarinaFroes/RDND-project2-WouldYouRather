@@ -15,10 +15,10 @@ function App() {
       <Fragment>
         <Nav />
         <div className="App">
-          <Route to="/" exact component={Home} />
-          <Route to="/add" component={NewQuestion} />
-          <Route to="/leaderboard" component={LeaderBoard} />
-          <Route to="/question/:question_id" component={QuestionPage} />
+          <Route path="/" exact component={Home} />
+          <Route path="/add" exact component={NewQuestion} />
+          <Route path="/leaderboard" exact component={LeaderBoard} />
+          <Route path="/question/:question_id" component={QuestionPage} />
         </div>
       </Fragment>
     </Router>
