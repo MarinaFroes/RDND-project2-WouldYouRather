@@ -12,10 +12,10 @@ export function receiveQuestions(questions) {
   }
 }
 
-export function addQuestion(questionText) {
+export function addQuestion(question) {
   return {
     type: ADD_QUESTION,
-    questionText
+    question
   }
 }
 
@@ -29,8 +29,8 @@ export function handleAddQuestion(question) {
       optionOneText: question.optionOneText,
       optionTwoText: question.optionTwoText
     })
-      .then((questionText) => {
-        dispatch(addQuestion(questionText))
+      .then((question) => {
+        dispatch(addQuestion(question))
       .then(() => dispatch(hideLoading()))
     })
   }
