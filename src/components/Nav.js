@@ -17,9 +17,19 @@ const StyledUl = styled.ul`
 `
 
 const StyledLi = styled.li`
-  list-style-type: none;
-  color: "red";
+  list-style: none;
   padding: 10px;
+`
+
+const StyledLink = styled(Link)`
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    color: #bfbfbf;
+  }
 `
 
 const StyledImg = styled.img`
@@ -58,30 +68,28 @@ function Nav() {
     <StyledNav>
       <StyledUl>
         <StyledLi>
-          <Link to="/" exact>
+          <StyledLink to="/" exact>
             Home
-          </Link>
+          </StyledLink>
         </StyledLi>
         <StyledLi>
-          <Link to="/add" exact>
+          <StyledLink to="/add" exact>
             New Question
-          </Link>
+          </StyledLink>
         </StyledLi>
         <StyledLi>
-          <Link to="/leaderboard" exact>
+          <StyledLink to="/leaderboard" exact>
             Leader Board
-          </Link>
+          </StyledLink>
         </StyledLi>
       </StyledUl>
       <UserDiv>
         <GreetingSpan>Hello, UserName!</GreetingSpan>
         <StyledImg
-          src="https://picsum.photos/seed/picsum/50/50"
+          src="https://picsum.photos/seed/picsum/40/40"
           alt="Avatar of UserName"
         />
-        <StyledButton>
-          Logout
-        </StyledButton>
+        <StyledButton>Logout</StyledButton>
       </UserDiv>
     </StyledNav>
   )
