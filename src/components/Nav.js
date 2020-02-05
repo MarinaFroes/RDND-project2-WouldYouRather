@@ -5,27 +5,26 @@ import styled from 'styled-components'
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 1rem;
   font-weight: bold;
-  border: 2px solid red;
 `
 
 const StyledUl = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  border: 2px solid blue;
 `
 
 const StyledLi = styled.li`
   list-style-type: none;
   color: "red";
   padding: 10px;
-  border: 2px solid green;
 `
 
 const StyledImg = styled.img`
   border-radius: 50%;
+  height: 40px;
 `
 
 const GreetingSpan = styled.span`
@@ -37,16 +36,21 @@ const UserDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid orange;
   padding: 10px;
 `
 
 const StyledButton = styled.button`
-  background-color: grey;
-  color: white;
+  background-color: #e6e6e6;
+  color: #000;
   padding: 10px;
   border-radius: 5px;
+  border: none;
   margin: 10px;
+  font-weight: bold;
+  :hover {
+    cursor: pointer;
+    background-color: #bfbfbf;
+  }
 `
 
 function Nav() {
