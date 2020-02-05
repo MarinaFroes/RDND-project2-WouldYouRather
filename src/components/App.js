@@ -11,19 +11,19 @@ import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import { handleInitialData } from '../actions/shared'
 
-class App extends Component() {
+class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    this.props.dispatch(handleInitialData()).then(() => console.log(this.props))
   }
 
   render() {
-    console.log(this.props)
+    
     return (
       <Router>
         <Fragment>
-          <Nav userName={"Marina"} />
           {this.props.loading === true ? null : (
             <div className="App">
+              <Nav userName={this.props.userName} />
               <Route path="/" exact component={Home} />
               <Route path="/add" exact component={NewQuestion} />
               <Route path="/leaderboard" exact component={LeaderBoard} />
@@ -36,9 +36,10 @@ class App extends Component() {
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    userName: authedUser !== null && users[authedUser].name
   }
 }
 
