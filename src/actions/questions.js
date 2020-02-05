@@ -29,10 +29,8 @@ export function handleAddQuestion(question) {
       optionOneText: question.optionOneText,
       optionTwoText: question.optionTwoText
     })
-      .then((question) => {
-        dispatch(addQuestion(question))
+      .then((question) => dispatch(addQuestion(question)))
       .then(() => dispatch(hideLoading()))
-    })
   }
 }
 
@@ -52,9 +50,8 @@ export function handleSaveAnswer(answer, qid) {
       authedUser: authedUser,
       qid,
       answer
-    }).then(answer => {
-      dispatch(addAnswer(answer))
-        .then(() => dispatch(hideLoading()))
     })
+      .then(answerInfo => dispatch(addAnswer(answerInfo)))
+      .then(() => dispatch(hideLoading()))
   }
 }
