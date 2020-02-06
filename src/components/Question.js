@@ -102,21 +102,3 @@ function mapStateToProps({ users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
-
-  /*
-   <form
-                onSubmit={e => {
-                  e.preventDefault()
-                  console.log(e.target.value)
-                }}
-              >
-                <input type="radio" name="option" value="optionOne" />
-                {question.optionOne.text}
-                <br />
-                <input type="radio" name="option" value="optionTwo" />
-                {question.optionTwo.text}
-                <br />
-                  <Button type="submit">Submit</Button>
-                  <p>{page}</p>
-              </form>
-   */
