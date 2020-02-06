@@ -28,16 +28,12 @@ const Title = styled.div`
 `
 
 const StyledLink = styled(Link)`
-  background-color: #e6e6e6;
-  color: #000;
   margin: 2rem;
   border: none;
   padding: 5px;
-  font-weight: bold;
   font-size: 1rem;
-  text-decoration: none;
   &:hover {
-    background-color: #bfbfbf;
+    font-weight: bold;
     cursor: pointer;
   }
 `
@@ -74,7 +70,7 @@ class Question extends Component {
                   ...{question.optionOne.text} or {question.optionTwo.text}?
                 </p>
                 <StyledLink to={`/question/${question.id}`}>
-                  Check Answers
+                  Click here to check Answers
                 </StyledLink>
               </div>
             ) : (
@@ -83,7 +79,7 @@ class Question extends Component {
                   ...{question.optionOne.text} or {question.optionTwo.text}?
                 </p>
                 <StyledLink to={`/question/${question.id}`}>
-                  Answer
+                  Click here to answer
                 </StyledLink>
               </div>
             )}
