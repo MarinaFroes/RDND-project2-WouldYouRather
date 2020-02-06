@@ -32,9 +32,9 @@ const Button = styled.button`
   width: 70%;
   margin: 2rem;
   border: none;
-  border-radius: 5px;
-  padding: 3px;
+  padding: 5px;
   font-weight: bold;
+  font-size: 1rem;
   &:hover {
     background-color: #bfbfbf;
     cursor: pointer;
@@ -57,7 +57,7 @@ class Question extends Component {
     
     return (
       <StyledContainer id={question.id}>
-        <Title titleColor={answered.includes(question.id) && "#e6e6e6"}>
+        <Title titleColor={answered && "#e6e6e6"}>
           <p>{`${userName} asks:`}</p>
         </Title>
         <StyledDiv>
@@ -66,7 +66,7 @@ class Question extends Component {
           </UserDiv>
           <QuestionDiv>
             <h3>Would you rather...</h3>
-            {answered.includes(question.id) ? (
+            {answered ? (
               <div>
                 <p>
                   {question.optionOne.text} or {question.optionTwo.text}?
@@ -98,16 +98,14 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }, { qid }) {
+function mapStateToProps({ users, questions }, { qid }) {
   const question = questions[qid]
   const userId = question.author
-  const answered = Object.keys(users[authedUser].answers)
-  
+
   return {
     question,
     avatarURL: users[userId].avatarURL,
     userName: users[userId].name,
-    answered
   }
 }
 
