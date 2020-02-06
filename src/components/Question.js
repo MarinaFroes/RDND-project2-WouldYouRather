@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const StyledImg = styled.img`
   border-radius: 50%;
@@ -26,20 +27,21 @@ const Title = styled.div`
   background-color: ${props => props.titleColor || "#ccedd5"};
 `
 
-const Button = styled.button`
+const StyledLink = styled(Link)`
   background-color: #e6e6e6;
   color: #000;
-  width: 70%;
   margin: 2rem;
   border: none;
   padding: 5px;
   font-weight: bold;
   font-size: 1rem;
+  text-decoration: none;
   &:hover {
     background-color: #bfbfbf;
     cursor: pointer;
   }
 `
+
 const StyledDiv = styled.div`
   display: flex;
 `
@@ -69,27 +71,21 @@ class Question extends Component {
             {answered ? (
               <div>
                 <p>
-                  {question.optionOne.text} or {question.optionTwo.text}?
+                  ...{question.optionOne.text} or {question.optionTwo.text}?
                 </p>
-                <Button>Check results</Button>
-                <p>{page}</p>
+                <StyledLink to={`/question/${question.id}`}>
+                  Check Answers
+                </StyledLink>
               </div>
             ) : (
-              <form
-                onSubmit={e => {
-                  e.preventDefault()
-                  console.log(e.target.value)
-                }}
-              >
-                <input type="radio" name="option" value="optionOne" />
-                {question.optionOne.text}
-                <br />
-                <input type="radio" name="option" value="optionTwo" />
-                {question.optionTwo.text}
-                <br />
-                  <Button type="submit">Submit</Button>
-                  <p>{page}</p>
-              </form>
+              <div>
+                <p>
+                  ...{question.optionOne.text} or {question.optionTwo.text}?
+                </p>
+                <StyledLink to={`/question/${question.id}`}>
+                  Answer
+                </StyledLink>
+              </div>
             )}
           </QuestionDiv>
         </StyledDiv>
@@ -110,3 +106,21 @@ function mapStateToProps({ users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
+
+  /*
+   <form
+                onSubmit={e => {
+                  e.preventDefault()
+                  console.log(e.target.value)
+                }}
+              >
+                <input type="radio" name="option" value="optionOne" />
+                {question.optionOne.text}
+                <br />
+                <input type="radio" name="option" value="optionTwo" />
+                {question.optionTwo.text}
+                <br />
+                  <Button type="submit">Submit</Button>
+                  <p>{page}</p>
+              </form>
+   */
