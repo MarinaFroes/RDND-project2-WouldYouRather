@@ -53,7 +53,7 @@ const UserDiv = styled.div`
 
 class Question extends Component {
   render(){
-    const { avatarURL, userName, question, answered } = this.props
+    const { avatarURL, userName, question, answered, page } = this.props
     
     return (
       <StyledContainer id={question.id}>
@@ -72,6 +72,7 @@ class Question extends Component {
                   {question.optionOne.text} or {question.optionTwo.text}?
                 </p>
                 <Button>Check results</Button>
+                <p>{page}</p>
               </div>
             ) : (
               <form
@@ -86,7 +87,8 @@ class Question extends Component {
                 <input type="radio" name="option" value="optionTwo" />
                 {question.optionTwo.text}
                 <br />
-                <Button type="submit">Submit</Button>
+                  <Button type="submit">Submit</Button>
+                  <p>{page}</p>
               </form>
             )}
           </QuestionDiv>
@@ -110,22 +112,3 @@ function mapStateToProps({ authedUser, users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
-
-  /*
-  // Create an Input component that'll render an <input> tag with some styles
-const Input = styled.input`
-  padding: 0.5em;
-  margin: 0.5em;
-  color: ${props => props.inputColor || "palevioletred"};
-  background: papayawhip;
-  border: none;
-  border-radius: 3px;
-`;
-// Render a styled text input with the standard input color, and one with a custom input color
-render(
-  <div>
-    <Input defaultValue="@probablyup" type="text" />
-    <Input defaultValue="@geelen" type="text" inputColor="rebeccapurple" />
-  </div>
-);
-  */
