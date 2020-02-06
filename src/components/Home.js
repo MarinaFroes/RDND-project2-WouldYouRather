@@ -15,7 +15,7 @@ class Home extends Component {
   render() {
     return (
       <StyledMain>
-        {this.props.questionIds.map(qid => <Question key={qid} qid={qid} />)}
+        {this.props.questionIds.map(qid => <Question key={qid} qid={qid} page="HomePage"/>)}
       </StyledMain>
     )
   }
