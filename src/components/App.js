@@ -23,7 +23,10 @@ class App extends Component {
         <Fragment>
           {this.props.loading === true ? null : (
             <div className="App">
-              <Nav userName={this.props.userName} />
+              <Nav
+                userName={this.props.userName}
+                avatarURL={this.props.avatarURL}
+              />
               <Route path="/" exact component={Home} />
               <Route path="/add" exact component={NewQuestion} />
               <Route path="/leaderboard" exact component={LeaderBoard} />
@@ -39,7 +42,8 @@ class App extends Component {
 function mapStateToProps({ authedUser, users }) {
   return {
     loading: authedUser === null,
-    userName: authedUser !== null && users[authedUser].name
+    userName: authedUser !== null && users[authedUser].name,
+    avatarURL: authedUser !== null && users[authedUser].avatarURL
   }
 }
 
