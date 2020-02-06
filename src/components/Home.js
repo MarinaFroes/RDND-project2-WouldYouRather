@@ -34,14 +34,14 @@ class Home extends Component {
           {questionIds
             .filter(qid => !answered.includes(qid))
             .map(qid => (
-              <Question key={qid} qid={qid} page="HomePage" />
+              <Question key={qid} qid={qid} page="HomePage" answered={false} />
             ))}
         </StyledTabPanel>
         <StyledTabPanel>
           {questionIds
             .filter(qid => answered.includes(qid))
             .map(qid => (
-              <Question key={qid} qid={qid} page="HomePage" />
+              <Question key={qid} qid={qid} page="HomePage" answered={true} />
             ))}
         </StyledTabPanel>
       </Tabs>
