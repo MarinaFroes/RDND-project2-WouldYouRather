@@ -7,11 +7,8 @@ class QuestionPage extends Component {
     return (
       <div>
         <Question
-          userName="Sara"
-          userId="sarahedo"
-          avatarURL="https://picsum.photos/seed/picsum/50/50"
-          optionOne="be a front-end developer?"
-          optionTwo="be a back-end developer?"
+          qid="8xf0y6ziyjabvozdd253nd"
+          page="QuestionPage"
         />
       </div>
     )
