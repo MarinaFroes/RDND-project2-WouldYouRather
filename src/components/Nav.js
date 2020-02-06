@@ -63,7 +63,7 @@ const StyledButton = styled.button`
   }
 `
 
-function Nav({ userName }) {
+function Nav({ userName, avatarURL }) {
   if (!userName) {
     userName = 'there'
   }
@@ -89,7 +89,7 @@ function Nav({ userName }) {
       <UserDiv>
         <GreetingSpan>Hello, {userName}!</GreetingSpan>
         <StyledImg
-          src="https://picsum.photos/seed/picsum/40/40"
+          src={avatarURL}
           alt={`Avatar of ${userName}`}
         />
         <StyledButton>Logout</StyledButton>
