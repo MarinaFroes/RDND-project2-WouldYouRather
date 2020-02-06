@@ -1,16 +1,27 @@
 import React, { Component } from 'react'
+// import { connect } from 'react-redux'
+import styled from 'styled-components'
 
-import Question from './Question'
+import QuestionDetails from './QuestionDetails'
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+
+`
 
 class QuestionPage extends Component {
   render() {
+    const id = this.props.match.params.question_id
+    
     return (
-      <div>
-        <Question
-          qid="8xf0y6ziyjabvozdd253nd"
-          page="QuestionPage"
-        />
-      </div>
+      <StyledDiv>
+        {id !== undefined ? (
+          <QuestionDetails qid={id} page="QuestionPage" />
+        ) : (
+          <h1 style={{ color: "red" }}>Question not found</h1>
+        )}
+      </StyledDiv>
     )
   }
 }
