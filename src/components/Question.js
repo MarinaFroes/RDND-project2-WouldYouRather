@@ -23,7 +23,7 @@ const Title = styled.div`
   display: flex;
   border-bottom: 2px solid #e8e9eb;
   padding-left: 20px;
-  background-color: #e6e6e6;
+  background-color: ${props => props.titleColor || "#ccedd5"};
 `
 
 const Button = styled.button`
@@ -57,7 +57,7 @@ class Question extends Component {
     
     return (
       <StyledContainer id={question.id}>
-        <Title>
+        <Title titleColor={answered.includes(question.id) && "#e6e6e6"}>
           <p>{`${userName} asks:`}</p>
         </Title>
         <StyledDiv>
@@ -71,7 +71,7 @@ class Question extends Component {
                 <p>
                   {question.optionOne.text} or {question.optionTwo.text}?
                 </p>
-                <button>Check results</button>
+                <Button>Check results</Button>
               </div>
             ) : (
               <form
@@ -110,3 +110,22 @@ function mapStateToProps({ authedUser, users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
+
+  /*
+  // Create an Input component that'll render an <input> tag with some styles
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: ${props => props.inputColor || "palevioletred"};
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+`;
+// Render a styled text input with the standard input color, and one with a custom input color
+render(
+  <div>
+    <Input defaultValue="@probablyup" type="text" />
+    <Input defaultValue="@geelen" type="text" inputColor="rebeccapurple" />
+  </div>
+);
+  */
