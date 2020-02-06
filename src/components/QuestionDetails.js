@@ -60,6 +60,15 @@ const OptionDiv = styled.div`
   margin: 1rem;
 `
 
+const InputDiv = styled.div`
+  font-size: 1rem;
+  padding: 0.5rem;
+`
+
+const Label = styled.label`
+  margin-left: 0.5rem;
+`
+
 class QuestionDetails extends Component {
   render() {
     const { avatarURL, userId, userName, question, authedUserAnswers } = this.props
@@ -88,7 +97,7 @@ class QuestionDetails extends Component {
                   <p>...{question.optionOne.text}</p>
                   <p>
                     Votes: {question.optionOne.votes.length} out of {totalVotes}{" "}
-                    ({question.optionOne.votes.length / totalVotes * 100}%)
+                    ({(question.optionOne.votes.length / totalVotes) * 100}%)
                   </p>
                 </OptionDiv>
                 <OptionDiv
@@ -99,7 +108,7 @@ class QuestionDetails extends Component {
                   <p>...{question.optionTwo.text}</p>
                   <p>
                     Votes: {question.optionTwo.votes.length} out of {totalVotes}{" "}
-                    ({question.optionTwo.votes.length / totalVotes * 100}%)
+                    ({(question.optionTwo.votes.length / totalVotes) * 100}%)
                   </p>
                 </OptionDiv>
               </div>
@@ -110,12 +119,14 @@ class QuestionDetails extends Component {
                   console.log(e.target.value)
                 }}
               >
-                <input type="radio" name="option" value="optionOne" />
-                {question.optionOne.text}
-                <br />
-                <input type="radio" name="option" value="optionTwo" />
-                {question.optionTwo.text}
-                <br />
+                <InputDiv>
+                  <input type="radio" name="option" value="optionOne" />
+                  <Label for="optionOne">...{question.optionOne.text}?</Label>
+                </InputDiv>
+                <InputDiv>
+                  <input type="radio" name="option" value="optionTwo" />
+                  <Label for="optionTwo">...{question.optionTwo.text}?</Label>
+                </InputDiv>
                 <Button type="submit">Submit</Button>
               </form>
             )}
