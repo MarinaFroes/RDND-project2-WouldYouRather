@@ -55,7 +55,7 @@ const UserDiv = styled.div`
 
 class Question extends Component {
   render(){
-    const { avatarURL, userName, question, answered, page } = this.props
+    const { avatarURL, userName, question, answered } = this.props
     
     return (
       <StyledContainer id={question.id}>
