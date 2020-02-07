@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { Redirect } from "react-router-dom"
 
 import { handleAddQuestion } from '../actions/questions'
 
@@ -59,8 +60,9 @@ const StyledTextArea = styled.textarea`
 
 class NewQuestion extends Component {
   state = {
-    optionOneText: '',
-    optionTwoText: ''
+    optionOneText: "",
+    optionTwoText: "",
+    toHome: false
   }
 
   handleChange = e => {
@@ -77,22 +79,32 @@ class NewQuestion extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-   
-    const {optionOneText, optionTwoText} = this.state
+
+    const { optionOneText, optionTwoText } = this.state
     const { dispatch } = this.props
 
-    dispatch(handleAddQuestion({
-      optionOneText,
-      optionTwoText
+    dispatch(
+      handleAddQuestion({
+        optionOneText,
+        optionTwoText
+      })
+    )
+
+    this.setState(prevState => ({
+      optionOneText: "",
+      optionTwoText: "",
+      toHome: !prevState.toHome
     }))
 
-    this.setState(() => ({
-      optionOneText: '',
-      optionTwoText: ''
-    }))
   }
 
   render() {
+    const { toHome } = this.state
+
+    if (toHome === true) {
+      return <Redirect to="/" />
+    }
+
     return (
       <StyledContainer>
         <QuestionContainer>
