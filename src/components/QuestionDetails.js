@@ -120,12 +120,21 @@ class QuestionDetails extends Component {
                 }}
               >
                 <InputDiv>
-                  <input type="radio" name="option" value="optionOne" />
-                  <Label for="optionOne">...{question.optionOne.text}?</Label>
+                  <input
+                    type="radio"
+                    name="option"
+                    value="optionOne"
+                    defaultChecked
+                  />
+                  <Label htmlFor="optionOne">
+                    ...{question.optionOne.text}?
+                  </Label>
                 </InputDiv>
                 <InputDiv>
                   <input type="radio" name="option" value="optionTwo" />
-                  <Label for="optionTwo">...{question.optionTwo.text}?</Label>
+                  <Label htmlFor="optionTwo">
+                    ...{question.optionTwo.text}?
+                  </Label>
                 </InputDiv>
                 <Button type="submit">Submit</Button>
               </form>
