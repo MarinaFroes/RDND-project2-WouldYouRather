@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { FaCheckCircle } from 'react-icons/fa'
 
 
 const StyledImg = styled.img`
@@ -56,8 +57,17 @@ const Button = styled.button`
 `
 
 const OptionDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: ${props => props.userAnswer || "#fff"};
   margin: 1rem;
+`
+
+const TextDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `
 
 const InputDiv = styled.div`
@@ -68,48 +78,70 @@ const InputDiv = styled.div`
 const Label = styled.label`
   margin-left: 0.5rem;
 `
+const StyledIcon = styled.div`
+  color: ${props => props.userAnswer || "#fff"};
+  font-size: 2rem;
+  margin-right: 1rem;
+`
 
 class QuestionDetails extends Component {
   render() {
-    const { avatarURL, userId, userName, question, authedUserAnswers } = this.props
+    const {
+      question,
+      avatarURLAuthor,
+      authorName,
+      authedUserAnswers,
+      isAnswered
+    } = this.props
+
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
+
+    const userAnswer = authedUserAnswers[question.id]
     
     return (
       <StyledContainer id={question.id}>
         <Title
-          titleColor={authedUserAnswers.includes(question.id) && "#e6e6e6"}
+          titleColor={isAnswered && "#e6e6e6"}
         >
-          <p>{`${userName} asks:`}</p>
+          <p>{`${authorName} asks:`}</p>
         </Title>
         <StyledDiv>
           <UserDiv>
-            <StyledImg src={avatarURL} alt={`Avatar of ${userName}`} />
+            <StyledImg src={avatarURLAuthor} alt={`Avatar of ${authorName}`} />
           </UserDiv>
           <QuestionDiv>
             <h3>Would you rather...</h3>
-            {authedUserAnswers.includes(question.id) ? (
+            {isAnswered ? (
               <div>
-                <OptionDiv
-                  userAnswer={
-                    question.optionOne.votes.includes(userId) && "#e6e6e6"
-                  }
-                >
-                  <p>...{question.optionOne.text}</p>
-                  <p>
-                    Votes: {question.optionOne.votes.length} out of {totalVotes}{" "}
-                    ({(question.optionOne.votes.length / totalVotes) * 100}%)
-                  </p>
+                <OptionDiv userAnswer={userAnswer === "optionOne" && "#ccedd5"}>
+                  <TextDiv>
+                    <p>...{question.optionOne.text}</p>
+                    <p>
+                      <strong>Votes:</strong> {question.optionOne.votes.length}{" "}
+                      out of {totalVotes} (
+                      {(question.optionOne.votes.length / totalVotes) * 100}%)
+                    </p>
+                  </TextDiv>
+                  <StyledIcon
+                    userAnswer={userAnswer === "optionOne" && "green"}
+                  >
+                    {<FaCheckCircle />}
+                  </StyledIcon>
                 </OptionDiv>
-                <OptionDiv
-                  userAnswer={
-                    question.optionTwo.votes.includes(userId) && "#e6e6e6"
-                  }
-                >
-                  <p>...{question.optionTwo.text}</p>
-                  <p>
-                    Votes: {question.optionTwo.votes.length} out of {totalVotes}{" "}
-                    ({(question.optionTwo.votes.length / totalVotes) * 100}%)
-                  </p>
+                <OptionDiv userAnswer={userAnswer === "optionTwo" && "#ccedd5"}>
+                  <TextDiv>
+                    <p>...{question.optionTwo.text}</p>
+                    <p>
+                      <strong>Votes:</strong> {question.optionTwo.votes.length}{" "}
+                      out of {totalVotes} (
+                      {(question.optionTwo.votes.length / totalVotes) * 100}%)
+                    </p>
+                  </TextDiv>
+                  <StyledIcon
+                    userAnswer={userAnswer === "optionTwo" && "green"}
+                  >
+                    {<FaCheckCircle />}
+                  </StyledIcon>
                 </OptionDiv>
               </div>
             ) : (
@@ -148,14 +180,15 @@ class QuestionDetails extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { qid }) {
   const question = questions[qid]
-  const userId = question.author
+  const authorId = question.author
+  const answeredIDs = Object.keys(users[authedUser].answers)
 
   return {
     question,
-    userId,
-    avatarURL: users[userId].avatarURL,
-    userName: users[userId].name,
-    authedUserAnswers: Object.keys(users[authedUser].answers)
+    avatarURLAuthor: users[authorId].avatarURL,
+    authorName: users[authorId].name,
+    authedUserAnswers: users[authedUser].answers,
+    isAnswered: answeredIDs.includes(question.id)
   }
 }
 
