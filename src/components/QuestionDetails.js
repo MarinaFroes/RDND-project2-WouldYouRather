@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { FaCheckCircle } from 'react-icons/fa'
 
+import { handleSaveAnswer } from "../actions/questions"
 
 const StyledImg = styled.img`
   border-radius: 50%;
@@ -85,6 +86,30 @@ const StyledIcon = styled.div`
 `
 
 class QuestionDetails extends Component {
+  state = {
+    answer: ''
+  }
+
+  handleRadioChange = e => {
+    this.setState({
+      answer: e.target.value
+    })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+
+    const {answer} = this.state 
+    const qid = this.props.question.id
+    const {dispatch} = this.props
+
+    dispatch(handleSaveAnswer(answer, qid))
+
+    this.setState(() => ({
+      answer: ''
+    }))
+  }
+
   render() {
     const {
       question,
@@ -100,9 +125,7 @@ class QuestionDetails extends Component {
     
     return (
       <StyledContainer id={question.id}>
-        <Title
-          titleColor={isAnswered && "#e6e6e6"}
-        >
+        <Title titleColor={isAnswered && "#e6e6e6"}>
           <p>{`${authorName} asks:`}</p>
         </Title>
         <StyledDiv>
@@ -145,25 +168,27 @@ class QuestionDetails extends Component {
                 </OptionDiv>
               </div>
             ) : (
-              <form
-                onSubmit={e => {
-                  e.preventDefault()
-                  console.log(e.target.value)
-                }}
-              >
+              <form onSubmit={this.handleSubmit}>
                 <InputDiv>
                   <input
                     type="radio"
                     name="option"
                     value="optionOne"
-                    defaultChecked
+                    checked={this.state.answer === "optionOne"}
+                    onChange={this.handleRadioChange}
                   />
                   <Label htmlFor="optionOne">
                     ...{question.optionOne.text}?
                   </Label>
                 </InputDiv>
                 <InputDiv>
-                  <input type="radio" name="option" value="optionTwo" />
+                  <input
+                    type="radio"
+                    name="option"
+                    value="optionTwo"
+                    checked={this.state.answer === "optionTwo"}
+                    onChange={this.handleRadioChange}
+                  />
                   <Label htmlFor="optionTwo">
                     ...{question.optionTwo.text}?
                   </Label>
