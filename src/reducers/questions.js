@@ -8,11 +8,15 @@ export default function questions(state = {}, action) {
         ...action.questions
       }
     case SAVE_ANSWER:
-      // TODO
-      return null
+      return {
+        ...state,
+        ...action.questions
+      }
     case ADD_QUESTION:
-      // TODO
-      return null
+      return {
+        ...state,
+        ...action.questions
+      }
     default:
       return state
   }
