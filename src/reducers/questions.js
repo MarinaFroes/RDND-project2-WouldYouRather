@@ -13,11 +13,35 @@ export default function questions(state = {}, action) {
         ...action.questions
       }
     case ADD_QUESTION:
+      const { question } = action
+
       return {
         ...state,
-        ...action.questions
+        [question.id]: question,
+        // users: state.users[question.author].questions.concat([question.id])
       }
     default:
       return state
   }
 }
+
+/*
+  case ADD_TWEET:
+      const { tweet } = action
+      let replyingTo = {}
+
+      if (tweet.replyingTo !== null) {
+        replyingTo = {
+          [tweet.replyingTo]: {
+            ...state[tweet.replyingTo],
+            replies: state[tweet.replyingTo].replies.concat([[tweet.id]])
+          }
+        }
+      }
+
+      return {
+        ...state,
+        [action.tweet.id]: action.tweet,
+        ...replyingTo
+      }
+ */
