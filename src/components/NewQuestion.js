@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom"
 
 import { handleAddQuestion } from '../actions/questions'
+import CardTitle from './CardTitle'
 
 const StyledContainer = styled.main`
   display: flex;
@@ -16,13 +17,6 @@ const QuestionContainer = styled.div`
   border-radius: 5px;
   width: 50%;
   margin-top: 2rem;
-`
-
-const Title = styled.div`
-  display: flex;
-  border-bottom: 2px solid #e8e9eb;
-  padding-left: 20px;
-  background-color: #e6e6e6;
 `
 
 const StyledDiv = styled.div`
@@ -108,9 +102,10 @@ class NewQuestion extends Component {
     return (
       <StyledContainer>
         <QuestionContainer>
-          <Title>
-            <p>Add your question:</p>
-          </Title>
+          <CardTitle
+            text={"Add your question:"}
+            titleColor={"#e6e6e6"}
+          />
           <StyledDiv>
             <h3>Would you rather...</h3>
             <form onSubmit={this.handleSubmit}>
