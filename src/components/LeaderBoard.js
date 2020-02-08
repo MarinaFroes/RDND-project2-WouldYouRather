@@ -20,32 +20,47 @@ const ErrorMessage = styled.p`
 class LeaderBoard extends Component {
   
   render() {
-    const { usersIds } = this.props
-
-    if (!usersIds) {
-      return (
-        <ErrorMessage>Failed to load users</ErrorMessage>
-      )
+    const { users } = this.props
+    
+    if (!users) {
+      return <ErrorMessage>Failed to load users</ErrorMessage>
     }
+
+    const scoredUsers = {}
+
+    for (const user in users) {
+      const totalQuestions = users[user].questions.length
+      const totalAnswers = Object.keys(users[user].answers).length
+        
+      const userInfo = {
+        name: users[user].name,
+        avatarURL: users[user].avatarURL,
+        totalQuestions,
+        totalAnswers,
+        score: totalQuestions + totalAnswers
+      }
+
+      scoredUsers[users[user].id] = userInfo
+    }
+
+    const sortedIds = Object.keys(scoredUsers).sort(
+      (a, b) => scoredUsers[b].score - scoredUsers[a].score
+    )
 
     return (
       <Main>
         <h2>Leader Board</h2>
-        {usersIds.map(userId => (
-            <User
-              id={userId}
-              key={userId}
-            />
+        {sortedIds.map(userId => (
+          <User id={userId} key={userId} />
         ))}
       </Main>
     )
   }
 }
 
-function mapStateToProps({ users }) {
-  
+function mapStateToProps({ users }) { 
   return {
-    usersIds: Object.keys(users)
+    users
   }
 }
 
