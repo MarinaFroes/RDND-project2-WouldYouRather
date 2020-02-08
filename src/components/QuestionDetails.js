@@ -5,6 +5,7 @@ import { FaCheckCircle } from 'react-icons/fa'
 
 import { handleSaveAnswer } from '../actions/questions'
 import UserInfo from './UserInfo'
+import CardTitle from './CardTitle'
 
 const StyledContainer = styled.div`
   border: 2px solid #e8e9eb;
@@ -15,13 +16,6 @@ const StyledContainer = styled.div`
 
 const QuestionDiv = styled.div`
   width: 100%;
-`
-
-const Title = styled.div`
-  display: flex;
-  border-bottom: 2px solid #e8e9eb;
-  padding-left: 20px;
-  background-color: ${props => props.titleColor || "#ccedd5"};
 `
 
 const StyledDiv = styled.div`
@@ -112,9 +106,10 @@ class QuestionDetails extends Component {
     
     return (
       <StyledContainer id={question.id}>
-        <Title titleColor={isAnswered && "#e6e6e6"}>
-          <p>{`${authorName} asks:`}</p>
-        </Title>
+        <CardTitle
+          text={`${authorName} asks:`}
+          titleColor={isAnswered && "#e6e6e6"}
+        />
         <StyledDiv>
           <UserInfo userName={authorName} avatarURL={avatarURLAuthor} />
           <QuestionDiv>
@@ -203,9 +198,3 @@ function mapStateToProps({ authedUser, users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(QuestionDetails)
-
-/*
-<UserDiv>
-            <StyledImg src={avatarURLAuthor} alt={`Avatar of ${authorName}`} />
-          </UserDiv>
- */
