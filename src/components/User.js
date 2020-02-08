@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import UserInfo from './UserInfo'
+
 
 const CardDiv = styled.div`
   display: flex;
@@ -14,20 +16,6 @@ const CardDiv = styled.div`
 const InfoDiv = styled.div`
   width: 100%;
   margin: 1rem;
-`
-
-const UserDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid #e6e6e6;
-  background-color: #e6e6e6;
-`
-
-const StyledImg = styled.img`
-  border-radius: 50%;
-  padding: 0 20px;
-  height: 100px;
 `
 
 const Score = styled.p`
@@ -51,16 +39,18 @@ class User extends Component {
   
     return (
       <CardDiv>
-        <UserDiv>
-          <StyledImg src={user.avatarURL} alt={`Avatar of ${user.name}`} />
-        </UserDiv>
+        <UserInfo userName={user.name} avatarURL={user.avatarURL} />
         <InfoDiv>
           <h3>{user.name}</h3>
           <p>
-            Asked <strong>{user.questions.length}</strong> questions and answered{" "}
-            <strong>{Object.keys(user.answers).length}</strong> questions
+            Asked <strong>{user.questions.length}</strong> questions and
+            answered <strong>{Object.keys(user.answers).length}</strong>{" "}
+            questions
           </p>
-          <Score>Total Score: {Object.keys(user.answers).length + user.questions.length}</Score>
+          <Score>
+            Total Score:{" "}
+            {Object.keys(user.answers).length + user.questions.length}
+          </Score>
         </InfoDiv>
       </CardDiv>
     )

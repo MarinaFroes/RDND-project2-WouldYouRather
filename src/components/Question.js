@@ -3,12 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 import QuestionPreview from './QuestionPreview'
-
-const StyledImg = styled.img`
-  border-radius: 50%;
-  padding: 0 20px;
-  height: 100px;
-`
+import UserInfo from './UserInfo'
 
 const StyledContainer = styled.div`
   border: 2px solid #e8e9eb;
@@ -31,13 +26,6 @@ const Title = styled.div`
 const StyledDiv = styled.div`
   display: flex;
 `
-const UserDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid #e6e6e6;
-  margin: 20px 0;
-`
 
 class Question extends Component {
   render(){
@@ -49,18 +37,15 @@ class Question extends Component {
           <p>{`${userName} asks:`}</p>
         </Title>
         <StyledDiv>
-          <UserDiv>
-            <StyledImg src={avatarURL} alt={`Avatar of ${userName}`} />
-          </UserDiv>
+          <UserInfo userName={userName} avatarURL={avatarURL} />
           <QuestionDiv>
             <h3>Would you rather...</h3>
-
-              <QuestionPreview
-                optionOneText={question.optionOne.text}
-                optionTwoText={question.optionTwo.text}
-                id={question.id}
-                isAnswered={answered}
-              />
+            <QuestionPreview
+              optionOneText={question.optionOne.text}
+              optionTwoText={question.optionTwo.text}
+              id={question.id}
+              isAnswered={answered}
+            />
           </QuestionDiv>
         </StyledDiv>
       </StyledContainer>
@@ -80,3 +65,9 @@ function mapStateToProps({ users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
+
+/*
+<UserDiv>
+  <StyledImg src={avatarURL} alt={`Avatar of ${userName}`} />
+</UserDiv>
+ */
