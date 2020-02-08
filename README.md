@@ -17,7 +17,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 
 - For this project I had to build a web app that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-In your app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
+- In my app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
  
 ## Udacity Requirements
 
@@ -26,9 +26,9 @@ In your app, users will be able to answer questions, see which questions they ha
 - [x] A README is included with the project. The README includes a description and clear instructions for installing and launching the project.
 
 ### Login Flow
-- [] There should be a way for the user to impersonate/ log in as an existing user. 
-- [] The application works correctly regardless of which user is selected.
-- [] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
+- [ ] There should be a way for the user to impersonate/ log in as an existing user. 
+- [ ] The application works correctly regardless of which user is selected.
+- [ ] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
 - [] Once the user logs in, the home page is shown.
 - [] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
 
