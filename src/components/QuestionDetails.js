@@ -3,13 +3,8 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { FaCheckCircle } from 'react-icons/fa'
 
-import { handleSaveAnswer } from "../actions/questions"
-
-const StyledImg = styled.img`
-  border-radius: 50%;
-  padding: 0 20px;
-  height: 100px;
-`
+import { handleSaveAnswer } from '../actions/questions'
+import UserInfo from './UserInfo'
 
 const StyledContainer = styled.div`
   border: 2px solid #e8e9eb;
@@ -31,14 +26,6 @@ const Title = styled.div`
 
 const StyledDiv = styled.div`
   display: flex;
-`
-
-const UserDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid #e6e6e6;
-  margin: 20px 0;
 `
 
 const Button = styled.button`
@@ -129,9 +116,7 @@ class QuestionDetails extends Component {
           <p>{`${authorName} asks:`}</p>
         </Title>
         <StyledDiv>
-          <UserDiv>
-            <StyledImg src={avatarURLAuthor} alt={`Avatar of ${authorName}`} />
-          </UserDiv>
+          <UserInfo userName={authorName} avatarURL={avatarURLAuthor} />
           <QuestionDiv>
             <h3>Would you rather...</h3>
             {isAnswered ? (
@@ -218,3 +203,9 @@ function mapStateToProps({ authedUser, users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(QuestionDetails)
+
+/*
+<UserDiv>
+            <StyledImg src={avatarURLAuthor} alt={`Avatar of ${authorName}`} />
+          </UserDiv>
+ */
