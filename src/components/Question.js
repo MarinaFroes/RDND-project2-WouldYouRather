@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+
+import QuestionPreview from './QuestionPreview'
 
 const StyledImg = styled.img`
   border-radius: 50%;
@@ -25,17 +26,6 @@ const Title = styled.div`
   border-bottom: 2px solid #e8e9eb;
   padding-left: 20px;
   background-color: ${props => props.titleColor || "#ccedd5"};
-`
-
-const StyledLink = styled(Link)`
-  margin: 2rem;
-  border: none;
-  padding: 5px;
-  font-size: 1rem;
-  &:hover {
-    font-weight: bold;
-    cursor: pointer;
-  }
 `
 
 const StyledDiv = styled.div`
@@ -64,25 +54,13 @@ class Question extends Component {
           </UserDiv>
           <QuestionDiv>
             <h3>Would you rather...</h3>
-            {answered ? (
-              <div>
-                <p>
-                  ...{question.optionOne.text} or {question.optionTwo.text}?
-                </p>
-                <StyledLink to={`/question/${question.id}`}>
-                  Click here to check Answers
-                </StyledLink>
-              </div>
-            ) : (
-              <div>
-                <p>
-                  ...{question.optionOne.text} or {question.optionTwo.text}?
-                </p>
-                <StyledLink to={`/question/${question.id}`}>
-                  Click here to answer
-                </StyledLink>
-              </div>
-            )}
+
+              <QuestionPreview
+                optionOneText={question.optionOne.text}
+                optionTwoText={question.optionTwo.text}
+                id={question.id}
+                isAnswered={answered}
+              />
           </QuestionDiv>
         </StyledDiv>
       </StyledContainer>
