@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 
 const CardDiv = styled.div`
@@ -37,24 +38,39 @@ const Score = styled.p`
 
 class User extends Component {
   render() {
-    const { avatarURL, userName, questions, answers, score } = this.props
+    const { users, id } = this.props
 
+    if (!users) {
+      return <p>Users don't exist</p>
+    }
+
+    const user = users[id]
+    if (!user) {
+      return <p>This user doesn't exist</p>
+    }
+  
     return (
       <CardDiv>
         <UserDiv>
-          <StyledImg src={avatarURL} alt={`Avatar of ${userName}`} />
+          <StyledImg src={user.avatarURL} alt={`Avatar of ${user.name}`} />
         </UserDiv>
         <InfoDiv>
-          <h3>{userName}</h3>
+          <h3>{user.name}</h3>
           <p>
-            Asked <strong>{questions}</strong> questions and answered{" "}
-            <strong>{answers}</strong> questions
+            Asked <strong>{user.questions.length}</strong> questions and answered{" "}
+            <strong>{Object.keys(user.answers).length}</strong> questions
           </p>
-          <Score>Total Score: {score}</Score>
+          <Score>Total Score: {Object.keys(user.answers).length + user.questions.length}</Score>
         </InfoDiv>
       </CardDiv>
     )
   }
 }
 
-export default User
+function mapStateToProps({ users }) {
+  return {
+    users
+  }
+}
+
+export default connect(mapStateToProps)(User)
