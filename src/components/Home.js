@@ -6,13 +6,6 @@ import 'react-tabs/style/react-tabs.css'
 
 import Question from './Question'
 
-// const StyledMain = styled.main`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-// `
-
 const StyledTabPanel = styled(TabPanel)`
   display: flex;
   justify-content: center;
@@ -48,15 +41,6 @@ class Home extends Component {
     )
   }
 }
-// class Home extends Component {
-//   render() {
-//     return (
-//       <StyledMain>
-//         {this.props.questionIds.map(qid => <Question key={qid} qid={qid} page="HomePage"/>)}
-//       </StyledMain>
-//     )
-//   }
-// }
 
 function mapStateToProps({ authedUser, users, questions }) {
   return {
@@ -67,17 +51,5 @@ function mapStateToProps({ authedUser, users, questions }) {
   }
 }
 
-// function mapStateToProps({ authedUser, users, questions }, { qid }) {
-//   const question = questions[qid]
-//   const userId = question.author
-//   const answered = Object.keys(users[authedUser].answers)
-
-//   return {
-//     question,
-//     avatarURL: users[userId].avatarURL,
-//     userName: users[userId].name,
-//     answered
-//   }
-// }
 
 export default connect(mapStateToProps)(Home)
