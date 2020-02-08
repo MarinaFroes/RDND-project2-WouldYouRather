@@ -29,8 +29,8 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - [ ] There should be a way for the user to impersonate/ log in as an existing user. 
 - [ ] The application works correctly regardless of which user is selected.
 - [ ] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
-- [] Once the user logs in, the home page is shown.
-- [] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
+- [ ] Once the user logs in, the home page is shown.
+- [ ] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
 
 ### Application Functionality
 
@@ -45,7 +45,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 #### Poll behavior
 - [x] Each polling question resides in the correct category (answered and unanswered). 
 - [x] A polling question links to details of that poll.
-- [] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
+- [ ] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
 
 #### Poll details
 - [x]The details of the poll are available at `questions/:question_id`.
@@ -58,20 +58,20 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
   - [x] the number of people who voted for that option;
   - [x] the percentage of people who voted for that option.
 - [x] The option selected by the logged in user should be clearly marked.
-- [] When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
-- [] The application asks the user to sign in and shows a 404 page if that poll does not exist. 
+- [ ] When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
+- [ ] The application asks the user to sign in and shows a 404 page if that poll does not exist. 
 
 #### Voting mechanism
-- [] Upon voting in a poll, all of the information of the answered poll is displayed.
-- [] The user’s response is recorded and is clearly visible on the poll details page.
-- [] When the user comes back to the home page, the polling question appears in the “Answered” column.
-- [] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
+- [ ] Upon voting in a poll, all of the information of the answered poll is displayed.
+- [ ] The user’s response is recorded and is clearly visible on the poll details page.
+- [ ] When the user comes back to the home page, the polling question appears in the “Answered” column.
+- [ ] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
 
 #### New polls
 - [x] The form is available at `/add`.
 - [x] The application shows the text “Would You Rather” and has a form for creating two options.
-- [] Upon submitting the form, a new poll is created and the user is taken to the home page.
-- [] The new polling question appears in the correct category on the home page.
+- [ ] Upon submitting the form, a new poll is created and the user is taken to the home page.
+- [ ] The new polling question appears in the correct category on the home page.
 
 #### Leaderboard functionality
 - [x] The Leaderboard is available at `/leaderboard`.
@@ -80,7 +80,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
   - [x] the user’s picture;
   - [x] the number of questions the user asked; 
   - [x] and the number of questions the user answered.
-- [] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
+- [ ] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
 #### Application navigability
 - [x] The app contains a navigation bar that is visible on all of the pages.
@@ -88,29 +88,29 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 
 #### Backend interaction
 - [x] The data that’s initially displayed is populated correctly from the backend.
-- [] Each user’s answer and each new poll is correctly recorded on the backend.
+- [ ] Each user’s answer and each new poll is correctly recorded on the backend.
 
 #### Errors
-- [] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
+- [ ] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
 
 ### Architecture
 #### Store as single source of truth
 
-- [] The store is the application’s source of truth.
-- [] Components read the necessary state from the store; they do not have their own versions of the same state.
-- [] There are no direct API calls in the components' lifecycle methods.
+- [ ] The store is the application’s source of truth.
+- [ ] Components read the necessary state from the store; they do not have their own versions of the same state.
+- [ ] There are no direct API calls in the components' lifecycle methods.
 
 #### Redux State Management
-- [] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
-- [] Form inputs and controlled components may have some state handled by the component.
+- [ ] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
+- [ ] Form inputs and controlled components may have some state handled by the component.
 
 #### State update
-- [] Updates are triggered by dispatching action creators to reducers.
-- [] Reducers and actions are written properly and correctly return updated state to the store.
+- [ ] Updates are triggered by dispatching action creators to reducers.
+- [ ] Reducers and actions are written properly and correctly return updated state to the store.
 
-#### 
-- [] The code is structured and organized in a logical way.
-- [] Components are modular and reusable.
+#### Architecture logic
+- [ ] The code is structured and organized in a logical way.
+- [ ] Components are modular and reusable.
 
 ## How to install and use it?
 
