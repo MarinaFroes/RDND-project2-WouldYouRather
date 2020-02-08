@@ -80,7 +80,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
   - [x] the user’s picture;
   - [x] the number of questions the user asked; 
   - [x] and the number of questions the user answered.
-- [ ] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
+- [x] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
 #### Application navigability
 - [x] The app contains a navigation bar that is visible on all of the pages.
