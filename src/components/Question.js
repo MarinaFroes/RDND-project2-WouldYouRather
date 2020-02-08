@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import QuestionPreview from './QuestionPreview'
 import UserInfo from './UserInfo'
+import CardTitle from './CardTitle'
 
 const StyledContainer = styled.div`
   border: 2px solid #e8e9eb;
@@ -16,13 +17,6 @@ const QuestionDiv = styled.div`
   width: 100%;
 `
 
-const Title = styled.div`
-  display: flex;
-  border-bottom: 2px solid #e8e9eb;
-  padding-left: 20px;
-  background-color: ${props => props.titleColor || "#ccedd5"};
-`
-
 const StyledDiv = styled.div`
   display: flex;
 `
@@ -33,9 +27,10 @@ class Question extends Component {
     
     return (
       <StyledContainer id={question.id}>
-        <Title titleColor={answered && "#e6e6e6"}>
-          <p>{`${userName} asks:`}</p>
-        </Title>
+        <CardTitle
+          text={`${userName} asks:`}
+          titleColor={answered && "#e6e6e6"}
+        />
         <StyledDiv>
           <UserInfo userName={userName} avatarURL={avatarURL} />
           <QuestionDiv>
@@ -65,9 +60,3 @@ function mapStateToProps({ users, questions }, { qid }) {
 }
 
 export default connect(mapStateToProps)(Question)
-
-/*
-<UserDiv>
-  <StyledImg src={avatarURL} alt={`Avatar of ${userName}`} />
-</UserDiv>
- */
