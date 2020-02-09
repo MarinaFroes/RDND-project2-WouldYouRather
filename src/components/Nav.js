@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { handleSetAuthedUser } from '../actions/authedUser'
 
 const StyledNav = styled.nav`
   display: flex;
@@ -63,12 +65,28 @@ const StyledButton = styled.button`
   }
 `
 
-function Nav({ userName, avatarURL }) {
-  if (!userName) {
-    userName = 'there'
+const ErrorMessage = styled.p`
+  color: red;
+  font-weight: bold;
+  font-size: 1.5rem;
+`
+
+class Nav extends Component {
+  handleClick = (e) => {
+    e.preventDefault()
+
+    this.props.dispatch(handleSetAuthedUser(null))
   }
-  return (
-    <StyledNav>
+
+  render() {
+    const { userName, avatarURL } = this.props
+    
+    if (!userName) {
+       return (<ErrorMessage>Error</ErrorMessage>)
+    }
+
+    return (
+      <StyledNav>
       <StyledUl>
         <StyledLi>
           <StyledLink to="/" exact>
@@ -92,10 +110,11 @@ function Nav({ userName, avatarURL }) {
           src={avatarURL}
           alt={`Avatar of ${userName}`}
         />
-        <StyledButton>Logout</StyledButton>
+        <StyledButton onClick={this.handleClick}>Logout</StyledButton>
       </UserDiv>
     </StyledNav>
-  )
+    )
+  }
 }
 
-export default Nav
+export default connect()(Nav)
