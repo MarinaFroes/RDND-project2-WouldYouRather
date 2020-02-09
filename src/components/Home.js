@@ -15,7 +15,7 @@ const StyledTabPanel = styled(TabPanel)`
 
 class Home extends Component {
   render() {
-    const { questionIds, answered } = this.props
+    const { questionIds, isAnswered } = this.props
     return (
       <Tabs>
         <TabList>
@@ -25,16 +25,21 @@ class Home extends Component {
 
         <StyledTabPanel>
           {questionIds
-            .filter(qid => !answered.includes(qid))
+            .filter(qid => !isAnswered.includes(qid))
             .map(qid => (
-              <Question key={qid} qid={qid} page="HomePage" answered={false} />
+              <Question
+                key={qid}
+                qid={qid}
+                page="HomePage"
+                isAnswered={false}
+              />
             ))}
         </StyledTabPanel>
         <StyledTabPanel>
           {questionIds
-            .filter(qid => answered.includes(qid))
+            .filter(qid => isAnswered.includes(qid))
             .map(qid => (
-              <Question key={qid} qid={qid} page="HomePage" answered={true} />
+              <Question key={qid} qid={qid} page="HomePage" isAnswered={true} />
             ))}
         </StyledTabPanel>
       </Tabs>
@@ -47,7 +52,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     questionIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     ),
-    answered: Object.keys(users[authedUser].answers)
+    isAnswered: Object.keys(users[authedUser].answers)
   }
 }
 

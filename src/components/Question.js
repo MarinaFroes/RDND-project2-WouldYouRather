@@ -23,13 +23,13 @@ const StyledDiv = styled.div`
 
 class Question extends Component {
   render(){
-    const { avatarURL, userName, question, answered } = this.props
+    const { avatarURL, userName, question, isAnswered } = this.props
     
     return (
       <StyledContainer id={question.id}>
         <CardTitle
           text={`${userName} asks:`}
-          titleColor={answered && "#e6e6e6"}
+          titleColor={isAnswered && "#e6e6e6"}
         />
         <StyledDiv>
           <UserInfo userName={userName} avatarURL={avatarURL} />
@@ -39,7 +39,7 @@ class Question extends Component {
               optionOneText={question.optionOne.text}
               optionTwoText={question.optionTwo.text}
               id={question.id}
-              isAnswered={answered}
+              isAnswered={isAnswered}
             />
           </QuestionDiv>
         </StyledDiv>
