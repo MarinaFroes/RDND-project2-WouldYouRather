@@ -124,7 +124,11 @@ class QuestionDetails extends Component {
                     <p>
                       <strong>Votes:</strong> {question.optionOne.votes.length}{" "}
                       out of {totalVotes} (
-                      {(question.optionOne.votes.length / totalVotes) * 100}%)
+                      {(
+                        (question.optionOne.votes.length / totalVotes) *
+                        100
+                      ).toFixed(2)}
+                      %)
                     </p>
                   </TextDiv>
                   <StyledIcon
@@ -139,7 +143,11 @@ class QuestionDetails extends Component {
                     <p>
                       <strong>Votes:</strong> {question.optionTwo.votes.length}{" "}
                       out of {totalVotes} (
-                      {(question.optionTwo.votes.length / totalVotes) * 100}%)
+                      {(
+                        (question.optionTwo.votes.length / totalVotes) *
+                        100
+                      ).toFixed(2)}
+                      %)
                     </p>
                   </TextDiv>
                   <StyledIcon
