@@ -26,10 +26,10 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - [x] A README is included with the project. The README includes a description and clear instructions for installing and launching the project.
 
 ### Login Flow
-- [ ] There should be a way for the user to impersonate/ log in as an existing user. 
-- [ ] The application works correctly regardless of which user is selected.
-- [ ] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
-- [ ] Once the user logs in, the home page is shown.
+- [x] There should be a way for the user to impersonate/ log in as an existing user. 
+- [x] The application works correctly regardless of which user is selected.
+- [x] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
+- [x] Once the user logs in, the home page is shown.
 - [ ] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
 
 ### Application Functionality
