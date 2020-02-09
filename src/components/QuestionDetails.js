@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { FaCheckCircle } from 'react-icons/fa'
 
 import { handleSaveAnswer } from '../actions/questions'
 import { handleUpdateUsers } from '../actions/users'
 import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
+import AnsweredQuestion from './AnsweredQuestion'
 
 const StyledContainer = styled.div`
   border: 2px solid #e8e9eb;
@@ -39,20 +39,6 @@ const Button = styled.button`
   }
 `
 
-const OptionDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${props => props.userAnswer || "#fff"};
-  margin: 1rem;
-`
-
-const TextDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`
-
 const InputDiv = styled.div`
   font-size: 1rem;
   padding: 0.5rem;
@@ -60,11 +46,6 @@ const InputDiv = styled.div`
 
 const Label = styled.label`
   margin-left: 0.5rem;
-`
-const StyledIcon = styled.div`
-  color: ${props => props.userAnswer || "#fff"};
-  font-size: 2rem;
-  margin-right: 1rem;
 `
 
 class QuestionDetails extends Component {
@@ -105,6 +86,11 @@ class QuestionDetails extends Component {
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
 
     const userAnswer = authedUserAnswers[question.id]
+
+    const votesOptionOne = question.optionOne.votes.length
+    const votesOptionTwo = question.optionTwo.votes.length
+    const optionOneText = question.optionOne.text
+    const optionTwoText = question.optionTwo.text
     
     return (
       <StyledContainer id={question.id}>
@@ -117,46 +103,14 @@ class QuestionDetails extends Component {
           <QuestionDiv>
             <h3>Would you rather...</h3>
             {isAnswered ? (
-              <div>
-                <OptionDiv userAnswer={userAnswer === "optionOne" && "#ccedd5"}>
-                  <TextDiv>
-                    <p>...{question.optionOne.text}</p>
-                    <p>
-                      <strong>Votes:</strong> {question.optionOne.votes.length}{" "}
-                      out of {totalVotes} (
-                      {(
-                        (question.optionOne.votes.length / totalVotes) *
-                        100
-                      ).toFixed(2)}
-                      %)
-                    </p>
-                  </TextDiv>
-                  <StyledIcon
-                    userAnswer={userAnswer === "optionOne" && "green"}
-                  >
-                    {<FaCheckCircle />}
-                  </StyledIcon>
-                </OptionDiv>
-                <OptionDiv userAnswer={userAnswer === "optionTwo" && "#ccedd5"}>
-                  <TextDiv>
-                    <p>...{question.optionTwo.text}</p>
-                    <p>
-                      <strong>Votes:</strong> {question.optionTwo.votes.length}{" "}
-                      out of {totalVotes} (
-                      {(
-                        (question.optionTwo.votes.length / totalVotes) *
-                        100
-                      ).toFixed(2)}
-                      %)
-                    </p>
-                  </TextDiv>
-                  <StyledIcon
-                    userAnswer={userAnswer === "optionTwo" && "green"}
-                  >
-                    {<FaCheckCircle />}
-                  </StyledIcon>
-                </OptionDiv>
-              </div>
+              <AnsweredQuestion
+                totalVotes={totalVotes}
+                userAnswer={userAnswer}
+                votesOptionOne={votesOptionOne}
+                votesOptionTwo={votesOptionTwo}
+                optionOneText={optionOneText}
+                optionTwoText={optionTwoText}
+              />
             ) : (
               <form onSubmit={this.handleSubmit}>
                 <InputDiv>
