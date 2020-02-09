@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FaCheckCircle } from 'react-icons/fa'
 
 import { handleSaveAnswer } from '../actions/questions'
+import { handleUpdateUsers } from '../actions/users'
 import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
 
@@ -81,10 +82,11 @@ class QuestionDetails extends Component {
     e.preventDefault()
 
     const {answer} = this.state 
-    const qid = this.props.question.id
+    const qid = this.props.qid
     const {dispatch} = this.props
-
+    
     dispatch(handleSaveAnswer(answer, qid))
+    dispatch(handleUpdateUsers())
 
     this.setState(() => ({
       answer: ''
