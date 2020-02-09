@@ -45,7 +45,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 #### Poll behavior
 - [x] Each polling question resides in the correct category (answered and unanswered). 
 - [x] A polling question links to details of that poll.
-- [ ] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
+- [x] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
 
 #### Poll details
 - [x] The details of the poll are available at `questions/:question_id`.
@@ -62,16 +62,16 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - [ ] The application asks the user to sign in and shows a 404 page if that poll does not exist. 
 
 #### Voting mechanism
-- [ ] Upon voting in a poll, all of the information of the answered poll is displayed.
-- [ ] The user’s response is recorded and is clearly visible on the poll details page.
-- [ ] When the user comes back to the home page, the polling question appears in the “Answered” column.
-- [ ] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
+- [x] Upon voting in a poll, all of the information of the answered poll is displayed.
+- [x] The user’s response is recorded and is clearly visible on the poll details page.
+- [x] When the user comes back to the home page, the polling question appears in the “Answered” column.
+- [x] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
 
 #### New polls
 - [x] The form is available at `/add`.
 - [x] The application shows the text “Would You Rather” and has a form for creating two options.
-- [ ] Upon submitting the form, a new poll is created and the user is taken to the home page.
-- [ ] The new polling question appears in the correct category on the home page.
+- [x] Upon submitting the form, a new poll is created and the user is taken to the home page.
+- [x] The new polling question appears in the correct category on the home page.
 
 #### Leaderboard functionality
 - [x] The Leaderboard is available at `/leaderboard`.
@@ -88,7 +88,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 
 #### Backend interaction
 - [x] The data that’s initially displayed is populated correctly from the backend.
-- [ ] Each user’s answer and each new poll is correctly recorded on the backend.
+- [x] Each user’s answer and each new poll is correctly recorded on the backend.
 
 #### Errors
 - [ ] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
