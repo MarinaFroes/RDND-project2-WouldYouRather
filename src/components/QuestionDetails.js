@@ -97,6 +97,7 @@ class QuestionDetails extends Component {
         <CardTitle
           text={`${authorName} asks:`}
           titleColor={isAnswered && "#e6e6e6"}
+          timestamp={question.timestamp}
         />
         <StyledDiv>
           <UserInfo userName={authorName} avatarURL={avatarURLAuthor} />
