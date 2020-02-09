@@ -34,9 +34,11 @@ export function handleAddQuestion(question) {
   }
 }
 
-export function addAnswer(answer) {
+export function addAnswer({ authedUser, qid, answer }) {
   return {
     type: SAVE_ANSWER,
+    authedUser,
+    qid,
     answer
   }
 }
@@ -46,12 +48,14 @@ export function handleSaveAnswer(answer, qid) {
     const { authedUser } = getState()
     dispatch(showLoading())
 
-    return saveQuestionAnswer({
+    const answerInfo = {
       authedUser: authedUser,
       qid,
       answer
-    })
-      .then(answerInfo => dispatch(addAnswer(answerInfo)))
+    }
+
+    return saveQuestionAnswer(answerInfo)
+      .then(() => dispatch(addAnswer({...answerInfo})))
       .then(() => dispatch(hideLoading()))
   }
 }
