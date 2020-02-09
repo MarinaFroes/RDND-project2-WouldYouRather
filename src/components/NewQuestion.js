@@ -98,10 +98,7 @@ class NewQuestion extends Component {
     return (
       <StyledContainer>
         <QuestionContainer>
-          <CardTitle
-            text={"Add your question:"}
-            titleColor={"#e6e6e6"}
-          />
+          <CardTitle text={"Add your question:"} titleColor={"#ccedd5"} />
           <StyledDiv>
             <h3>Would you rather...</h3>
             <form onSubmit={this.handleSubmit}>
