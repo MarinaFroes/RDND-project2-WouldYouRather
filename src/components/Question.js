@@ -30,6 +30,7 @@ class Question extends Component {
         <CardTitle
           text={`${userName} asks:`}
           titleColor={isAnswered && "#e6e6e6"}
+          timestamp={question.timestamp}
         />
         <StyledDiv>
           <UserInfo userName={userName} avatarURL={avatarURL} />
