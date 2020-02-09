@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { handleAddQuestion } from '../actions/questions'
+import { handleUpdateUsers } from '../actions/users'
 import CardTitle from './CardTitle'
 
 const StyledContainer = styled.main`
@@ -59,6 +60,10 @@ class NewQuestion extends Component {
     toHome: false
   }
 
+  // componentDidUpdate = () => {
+  //   this.props.dispatch(handleUpdateUsers()).then(() => console.log(this.props))
+  // }
+
   handleChange = e => {
     if (e.target.id === "optionOne") {
       this.setState({
@@ -77,19 +82,14 @@ class NewQuestion extends Component {
     const { optionOneText, optionTwoText } = this.state
     const { dispatch } = this.props
 
-    dispatch(
-      handleAddQuestion({
-        optionOneText,
-        optionTwoText
-      })
-    )
+    dispatch(handleAddQuestion({ optionOneText, optionTwoText }))
+    dispatch(handleUpdateUsers())
 
     this.setState(prevState => ({
       optionOneText: "",
       optionTwoText: "",
       toHome: !prevState.toHome
     }))
-
   }
 
   render() {
