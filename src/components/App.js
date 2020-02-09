@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import Home from './Home'
 import LeaderBoard from './LeaderBoard'
-// import Login from './Login'
+import Login from './Login'
 import Nav from './Nav'
 import Footer from './Footer'
 import NewQuestion from './NewQuestion'
@@ -22,7 +22,9 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          {this.props.loading === true ? null : (
+          {this.props.loading === true
+            ? <Route path="/" exact component={Login} />
+           : (
             <div className="App">
               <Nav
                 userName={this.props.userName}
