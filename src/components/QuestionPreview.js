@@ -11,6 +11,7 @@ const StyledLink = styled(Link)`
     cursor: pointer;
   }
 `
+
 function QuestionPreview({ optionOneText, optionTwoText, id, isAnswered }) {
   return (
     <div>
