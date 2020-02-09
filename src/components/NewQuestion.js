@@ -59,11 +59,7 @@ class NewQuestion extends Component {
     optionTwoText: "",
     toHome: false
   }
-
-  // componentDidUpdate = () => {
-  //   this.props.dispatch(handleUpdateUsers()).then(() => console.log(this.props))
-  // }
-
+  
   handleChange = e => {
     if (e.target.id === "optionOne") {
       this.setState({
