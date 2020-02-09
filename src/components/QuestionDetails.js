@@ -121,9 +121,7 @@ class QuestionDetails extends Component {
                     checked={this.state.answer === "optionOne"}
                     onChange={this.handleRadioChange}
                   />
-                  <Label htmlFor="optionOne">
-                    ...{question.optionOne.text}?
-                  </Label>
+                  <Label htmlFor="optionOne">...{optionOneText}?</Label>
                 </InputDiv>
                 <InputDiv>
                   <input
@@ -133,9 +131,7 @@ class QuestionDetails extends Component {
                     checked={this.state.answer === "optionTwo"}
                     onChange={this.handleRadioChange}
                   />
-                  <Label htmlFor="optionTwo">
-                    ...{question.optionTwo.text}?
-                  </Label>
+                  <Label htmlFor="optionTwo">...{optionTwoText}?</Label>
                 </InputDiv>
                 <Button type="submit">Submit</Button>
               </form>
