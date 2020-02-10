@@ -8,9 +8,9 @@ import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
 import AnsweredQuestion from './AnsweredQuestion'
 
-const StyledContainer = styled.div`
-  border: 2px solid #e8e9eb;
-  border-radius: 5px;
+const CardContainer = styled.div`
+  box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
+  border-radius: 0.5rem;
   width: 50%;
   margin-top: 2rem;
 `
@@ -93,7 +93,7 @@ class QuestionDetails extends Component {
     const optionTwoText = question.optionTwo.text
     
     return (
-      <StyledContainer id={question.id}>
+      <CardContainer id={question.id}>
         <CardTitle
           text={`${authorName} asks:`}
           titleColor={isAnswered && "#e6e6e6"}
@@ -139,7 +139,7 @@ class QuestionDetails extends Component {
             )}
           </QuestionDiv>
         </StyledDiv>
-      </StyledContainer>
+      </CardContainer>
     )
   }
 }
