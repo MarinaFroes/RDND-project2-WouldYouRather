@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { handleSetAuthedUser } from '../actions/authedUser'
-import { FaCheckCircle } from 'react-icons/fa'
-
+import { FaMapSigns } from 'react-icons/fa'
 
 import CardTitle from './CardTitle'
 
@@ -12,12 +11,14 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 2rem;
 `
-const StyledContainer = styled.div`
-  border: 2px solid #e8e9eb;
+const CardContainer = styled.div`
   border-radius: 5px;
   width: 50%;
   margin-top: 2rem;
+  box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
+  border-radius: 0.5rem;
 `
 
 const CardDiv = styled.div`
@@ -87,14 +88,14 @@ class Login extends Component {
     return (
       <Main>
         <h1>Would you rather game</h1>
-        <StyledContainer>
+        <CardContainer>
           <CardTitle
             text={"Please, login to play the game: "}
             titleColor={false}
             timestamp={null}
           />
           <CardDiv>
-            <StyledIcon>{<FaCheckCircle />}</StyledIcon>
+            <StyledIcon>{<FaMapSigns />}</StyledIcon>
             <StyledForm onSubmit={this.handleSubmit}>
               <label>
                 <StyledSpan>Choose a user:</StyledSpan>
@@ -109,7 +110,7 @@ class Login extends Component {
               <Button type="submit">Submit</Button>
             </StyledForm>
           </CardDiv>
-        </StyledContainer>
+        </CardContainer>
       </Main>
     )
   }
