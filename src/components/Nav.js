@@ -89,17 +89,17 @@ class Nav extends Component {
       <StyledNav>
       <StyledUl>
         <StyledLi>
-          <StyledLink to="/" exact>
+          <StyledLink to="/" >
             Home
           </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to="/add" exact>
+          <StyledLink to="/add" >
             New Question
           </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to="/leaderboard" exact>
+          <StyledLink to="/leaderboard" >
             Leader Board
           </StyledLink>
         </StyledLi>
