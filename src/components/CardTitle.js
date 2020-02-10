@@ -6,9 +6,9 @@ const Title = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #e8e9eb;
   padding: 0 20px;
   background-color: ${props => props.titleColor || "#ccedd5"};
+  border-radius: 0.5rem 0.5rem 0 0;
 `
 
 const Date = styled.p`
