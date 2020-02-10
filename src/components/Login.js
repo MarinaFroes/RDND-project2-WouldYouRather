@@ -100,6 +100,9 @@ class Login extends Component {
               <label>
                 <StyledSpan>Choose a user:</StyledSpan>
                 <select onChange={this.handleChange}>
+                  <option value="" disabled selected>
+                    Select your user
+                  </option>
                   {usersIds.map(id => (
                     <option key={id} value={id}>
                       {id}
@@ -107,7 +110,9 @@ class Login extends Component {
                   ))}
                 </select>
               </label>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={this.state.value === ""}>
+                Submit
+              </Button>
             </StyledForm>
           </CardDiv>
         </CardContainer>
