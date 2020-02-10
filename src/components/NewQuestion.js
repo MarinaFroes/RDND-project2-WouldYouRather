@@ -13,11 +13,11 @@ const StyledContainer = styled.main`
   align-items: center;
 `
 
-const QuestionContainer = styled.div`
-  border: 2px solid #e8e9eb;
-  border-radius: 5px;
+const CardContainer = styled.div`
   width: 50%;
   margin-top: 2rem;
+  box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
+  border-radius: 0.5rem;
 `
 
 const StyledDiv = styled.div`
@@ -97,7 +97,7 @@ class NewQuestion extends Component {
 
     return (
       <StyledContainer>
-        <QuestionContainer>
+        <CardContainer>
           <CardTitle text={"Add your question:"} titleColor={"#ccedd5"} />
           <StyledDiv>
             <h3>Would you rather...</h3>
@@ -135,7 +135,7 @@ class NewQuestion extends Component {
               <Button type="submit">Submit</Button>
             </form>
           </StyledDiv>
-        </QuestionContainer>
+        </CardContainer>
       </StyledContainer>
     )
   }

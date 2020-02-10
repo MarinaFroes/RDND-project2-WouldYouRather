@@ -6,9 +6,9 @@ import QuestionPreview from './QuestionPreview'
 import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
 
-const StyledContainer = styled.div`
-  border: 2px solid #e8e9eb;
-  border-radius: 5px;
+const CardContainer = styled.div`
+  box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
+  border-radius: 0.5rem;
   width: 50%;
   margin-top: 2rem;
 `
@@ -19,6 +19,7 @@ const QuestionDiv = styled.div`
 
 const StyledDiv = styled.div`
   display: flex;
+  padding: 1rem;
 `
 
 class Question extends Component {
@@ -26,7 +27,7 @@ class Question extends Component {
     const { avatarURL, userName, question, isAnswered } = this.props
     
     return (
-      <StyledContainer id={question.id}>
+      <CardContainer id={question.id}>
         <CardTitle
           text={`${userName} asks:`}
           titleColor={isAnswered && "#e6e6e6"}
@@ -44,7 +45,7 @@ class Question extends Component {
             />
           </QuestionDiv>
         </StyledDiv>
-      </StyledContainer>
+      </CardContainer>
     )
   }
 }

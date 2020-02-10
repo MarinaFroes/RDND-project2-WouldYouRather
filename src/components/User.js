@@ -4,11 +4,10 @@ import { connect } from 'react-redux'
 
 import UserInfo from './UserInfo'
 
-
-const CardDiv = styled.div`
+const CardContainer = styled.div`
+  box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
+  border-radius: 0.5rem;
   display: flex;
-  border: 2px solid #e8e9eb;
-  border-radius: 5px;
   width: 50%;
   margin-top: 2rem;
 `
@@ -38,7 +37,7 @@ class User extends Component {
     }
   
     return (
-      <CardDiv>
+      <CardContainer>
         <UserInfo userName={user.name} avatarURL={user.avatarURL} />
         <InfoDiv>
           <h3>{user.name}</h3>
@@ -52,7 +51,7 @@ class User extends Component {
             {Object.keys(user.answers).length + user.questions.length}
           </Score>
         </InfoDiv>
-      </CardDiv>
+      </CardContainer>
     )
   }
 }
