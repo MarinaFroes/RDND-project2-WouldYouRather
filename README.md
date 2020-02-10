@@ -91,26 +91,26 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - [x] Each user’s answer and each new poll is correctly recorded on the backend.
 
 #### Errors
-- [ ] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
+- [x] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
 
 ### Architecture
 #### Store as single source of truth
 
-- [ ] The store is the application’s source of truth.
-- [ ] Components read the necessary state from the store; they do not have their own versions of the same state.
-- [ ] There are no direct API calls in the components' lifecycle methods.
+- [x] The store is the application’s source of truth.
+- [x] Components read the necessary state from the store; they do not have their own versions of the same state.
+- [x] There are no direct API calls in the components' lifecycle methods.
 
 #### Redux State Management
-- [ ] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
-- [ ] Form inputs and controlled components may have some state handled by the component.
+- [x] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
+- [x] Form inputs and controlled components may have some state handled by the component.
 
 #### State update
-- [ ] Updates are triggered by dispatching action creators to reducers.
-- [ ] Reducers and actions are written properly and correctly return updated state to the store.
+- [x] Updates are triggered by dispatching action creators to reducers.
+- [x] Reducers and actions are written properly and correctly return updated state to the store.
 
 #### Architecture logic
-- [ ] The code is structured and organized in a logical way.
-- [ ] Components are modular and reusable.
+- [x] The code is structured and organized in a logical way.
+- [x] Components are modular and reusable.
 
 ## Started code provided by Udacity
 
