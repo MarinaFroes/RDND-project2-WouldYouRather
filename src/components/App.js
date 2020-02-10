@@ -25,7 +25,7 @@ const ContentWraper = styled.div`
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData()).then(() => console.log(this.props))
+    this.props.dispatch(handleInitialData())
   }
 
   render() {
