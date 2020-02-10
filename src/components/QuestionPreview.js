@@ -12,18 +12,20 @@ const StyledLink = styled(Link)`
   }
 `
 
+const Text = styled.p`
+  padding: 0.5rem;
+`
+
 function QuestionPreview({ optionOneText, optionTwoText, id, isAnswered }) {
   return (
     <div>
-      <p>
+      <Text>
         ...{optionOneText} or {optionTwoText}?
-      </p>
+      </Text>
       <StyledLink to={`/question/${id}`}>
-        {
-          isAnswered === true 
-          ? 'Click here to check Answers' 
-          : 'Click here to answer'
-        }
+        {isAnswered === true
+          ? "Click here to check Answers"
+          : "Click here to answer"}
       </StyledLink>
     </div>
   )
