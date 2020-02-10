@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   text-align: center;
   width: 100%;
+  height: 5rem;
   padding: 1rem 0;
 `
 
@@ -17,10 +18,11 @@ const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 const StyledIcon = styled.a`
   color: silver;
   font-size: 1.5rem;
-  margin: 1rem;
+  margin: 0.5rem;
 `
 
 const StyledImg = styled.img`
