@@ -50,8 +50,8 @@ class LeaderBoard extends Component {
     return (
       <Main>
         <h2>Leader Board</h2>
-        {sortedIds.map(userId => (
-          <User id={userId} key={userId} />
+        {sortedIds.map((userId, index) => (
+          <User id={userId} key={userId} position={index + 1}/>
         ))}
       </Main>
     )
