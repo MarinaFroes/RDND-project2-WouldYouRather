@@ -50,7 +50,7 @@ const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #339933;
+  color: #264d00;
   font-size: 4rem;
   border-right: 2px solid #e6e6e6;
   margin: 1rem 0;
@@ -99,8 +99,8 @@ class Login extends Component {
             <StyledForm onSubmit={this.handleSubmit}>
               <label>
                 <StyledSpan>Choose a user:</StyledSpan>
-                <select onChange={this.handleChange}>
-                  <option value="" disabled selected>
+                <select onChange={this.handleChange} defaultValue="default">
+                  <option value="default" disabled >
                     Select your user
                   </option>
                   {usersIds.map(id => (
