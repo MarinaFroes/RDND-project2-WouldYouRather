@@ -6,7 +6,6 @@ import 'react-tabs/style/react-tabs.css'
 import { GiGlassCelebration } from 'react-icons/gi'
 import { FaSadTear } from 'react-icons/fa'
 
-
 import Question from './Question'
 
 const StyledTabPanel = styled(TabPanel)`
