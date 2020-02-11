@@ -10,6 +10,7 @@ const CardContainer = styled.div`
   display: flex;
   width: 50%;
   margin-top: 2rem;
+  position: relative;
 `
 
 const InfoDiv = styled.div`
@@ -22,22 +23,43 @@ const Score = styled.p`
   font-size: 1.2rem;
   color: red;
 `
+const Position = styled.div`
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background-color: #ccedd5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const StyledPosition = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+`
 
 class User extends Component {
   render() {
-    const { users, id } = this.props
+    const { users, id, position } = this.props
 
     if (!users) {
       return <p>Users don't exist</p>
     }
 
     const user = users[id]
+
     if (!user) {
       return <p>This user doesn't exist</p>
     }
-  
+    
     return (
       <CardContainer>
+        <Position>
+          <StyledPosition>{position}</StyledPosition>
+        </Position>
         <UserInfo userName={user.name} avatarURL={user.avatarURL} />
         <InfoDiv>
           <h3>{user.name}</h3>
