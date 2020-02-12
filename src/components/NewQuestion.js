@@ -55,8 +55,8 @@ const StyledTextArea = styled.textarea`
 
 class NewQuestion extends Component {
   state = {
-    optionOneText: "",
-    optionTwoText: "",
+    optionOneText: '',
+    optionTwoText: '',
     toHome: false
   }
   
@@ -82,8 +82,8 @@ class NewQuestion extends Component {
     dispatch(handleUpdateUsers())
 
     this.setState(prevState => ({
-      optionOneText: "",
-      optionTwoText: "",
+      optionOneText: '',
+      optionTwoText: '',
       toHome: !prevState.toHome
     }))
   }
