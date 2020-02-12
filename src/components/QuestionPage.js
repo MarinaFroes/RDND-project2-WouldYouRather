@@ -8,6 +8,9 @@ const StyledDiv = styled.div`
   justify-content: center;
 
 `
+const ErrorMessage = styled.h1`
+  color: red;
+`
 
 class QuestionPage extends Component {
   render() {
@@ -18,7 +21,7 @@ class QuestionPage extends Component {
         {id !== undefined ? (
           <QuestionDetails qid={id} page="QuestionPage" />
         ) : (
-          <h1 style={{ color: "red" }}>Question not found</h1>
+          <ErrorMessage>Question not found</ErrorMessage>
         )}
       </StyledDiv>
     )
