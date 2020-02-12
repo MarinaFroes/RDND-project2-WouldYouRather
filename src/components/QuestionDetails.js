@@ -7,6 +7,7 @@ import { handleUpdateUsers } from '../actions/users'
 import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
 import AnsweredQuestion from './AnsweredQuestion'
+import Button from './Button'
 
 const CardContainer = styled.div`
   box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
@@ -21,22 +22,6 @@ const QuestionDiv = styled.div`
 
 const StyledDiv = styled.div`
   display: flex;
-`
-
-const Button = styled.button`
-  background-color: #e6e6e6;
-  color: #000;
-  margin: 2rem;
-  width: 70%;
-  border: none;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  &:hover {
-    background-color: #bfbfbf;
-    cursor: pointer;
-  }
 `
 
 const InputDiv = styled.div`
@@ -134,7 +119,7 @@ class QuestionDetails extends Component {
                   />
                   <Label htmlFor="optionTwo">...{optionTwoText}?</Label>
                 </InputDiv>
-                <Button type="submit">Submit</Button>
+                <Button />
               </form>
             )}
           </QuestionDiv>

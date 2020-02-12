@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 import { handleUpdateUsers } from '../actions/users'
 import CardTitle from './CardTitle'
+import Button from './Button'
 
 const StyledContainer = styled.main`
   display: flex;
@@ -23,22 +24,6 @@ const CardContainer = styled.div`
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-`
-
-const Button = styled.button`
-  background-color: #e6e6e6;
-  color: #000;
-  margin: 2rem;
-  width: 60%;
-  border: none;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  &:hover {
-    background-color: #bfbfbf;
-    cursor: pointer;
-  }
 `
 
 const InputDiv = styled.div`
@@ -132,7 +117,7 @@ class NewQuestion extends Component {
                   required
                 />
               </InputDiv>
-              <Button type="submit">Submit</Button>
+              <Button />
             </form>
           </StyledDiv>
         </CardContainer>
