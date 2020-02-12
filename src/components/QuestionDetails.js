@@ -7,7 +7,7 @@ import { handleUpdateUsers } from '../actions/users'
 import UserInfo from './UserInfo'
 import CardTitle from './CardTitle'
 import AnsweredQuestion from './AnsweredQuestion'
-import Button from './Button'
+import SubmitButton from './SubmitButton'
 
 const CardContainer = styled.div`
   box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
@@ -119,7 +119,7 @@ class QuestionDetails extends Component {
                       </InputDiv>
                     ))
                   }
-                <Button />
+                <SubmitButton />
               </form>
             )}
           </QuestionDiv>

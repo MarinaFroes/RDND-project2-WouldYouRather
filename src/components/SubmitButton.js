@@ -17,7 +17,7 @@ const StyledButton = styled.button`
   }
 `
 
-function Button() {
+function SubmitButton() {
   return (
     <StyledButton type="submit">
       Submit
@@ -25,4 +25,4 @@ function Button() {
   )
 }
 
-export default Button
+export default SubmitButton

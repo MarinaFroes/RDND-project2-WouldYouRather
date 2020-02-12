@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 import { handleUpdateUsers } from '../actions/users'
 import CardTitle from './CardTitle'
-import Button from './Button'
+import SubmitButton from './SubmitButton'
 
 const StyledContainer = styled.main`
   display: flex;
@@ -117,7 +117,7 @@ class NewQuestion extends Component {
                   required
                 />
               </InputDiv>
-              <Button />
+              <SubmitButton />
             </form>
           </StyledDiv>
         </CardContainer>
