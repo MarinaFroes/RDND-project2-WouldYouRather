@@ -13,6 +13,7 @@ const Main = styled.main`
   flex-direction: column;
   margin-top: 2rem;
 `
+
 const CardContainer = styled.div`
   border-radius: 5px;
   width: 50%;
@@ -24,6 +25,7 @@ const CardContainer = styled.div`
 const CardDiv = styled.div`
   display: flex;
 `
+
 const StyledForm = styled.form`
   width: 70%;
   padding: 2rem;
