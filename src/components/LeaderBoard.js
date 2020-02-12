@@ -18,7 +18,7 @@ const ErrorMessage = styled.p`
 `
 
 class LeaderBoard extends Component {
-  
+
   render() {
     const { users } = this.props
     
