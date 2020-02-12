@@ -14,6 +14,7 @@ const StyledTabPanel = styled(TabPanel)`
   align-items: center;
   flex-direction: column;
 `
+
 const CardContainer = styled.div`
   box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
   border-radius: 0.5rem;
@@ -23,6 +24,7 @@ const CardContainer = styled.div`
   padding: 1rem;
   margin-top: 2rem;
 `
+
 const MessageText = styled.span`
   font-size: 1rem;
   font-weight: bold;
@@ -47,7 +49,6 @@ class Home extends Component {
           <Tab>Unanswered</Tab>
           <Tab>Answered</Tab>
         </TabList>
-
         <StyledTabPanel>
           {unanswered.length < 1 ? (
             <CardContainer>
