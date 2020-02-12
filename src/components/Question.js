@@ -23,6 +23,7 @@ const StyledDiv = styled.div`
 `
 
 class Question extends Component {
+  
   render(){
     const { avatarURL, userName, question, isAnswered } = this.props
     
