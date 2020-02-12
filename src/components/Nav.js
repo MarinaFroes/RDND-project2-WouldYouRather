@@ -72,6 +72,7 @@ const ErrorMessage = styled.p`
 `
 
 class Nav extends Component {
+  
   handleClick = (e) => {
     e.preventDefault()
 
