@@ -76,6 +76,8 @@ class QuestionDetails extends Component {
     const votesOptionTwo = question.optionTwo.votes.length
     const optionOneText = question.optionOne.text
     const optionTwoText = question.optionTwo.text
+
+    const values = ["optionOne", "optionTwo"]
     
     return (
       <CardContainer id={question.id}>
@@ -99,26 +101,24 @@ class QuestionDetails extends Component {
               />
             ) : (
               <form onSubmit={this.handleSubmit}>
-                <InputDiv>
-                  <input
-                    type="radio"
-                    name="option"
-                    value="optionOne"
-                    checked={this.state.answer === "optionOne"}
-                    onChange={this.handleRadioChange}
-                  />
-                  <Label htmlFor="optionOne">...{optionOneText}?</Label>
-                </InputDiv>
-                <InputDiv>
-                  <input
-                    type="radio"
-                    name="option"
-                    value="optionTwo"
-                    checked={this.state.answer === "optionTwo"}
-                    onChange={this.handleRadioChange}
-                  />
-                  <Label htmlFor="optionTwo">...{optionTwoText}?</Label>
-                </InputDiv>
+                  {
+                    values.map(value => (
+                      <InputDiv key={value}>
+                        <input
+                          type="radio"
+                          name="option"
+                          value={value}
+                          checked={this.state.answer === `${value}`}
+                          onChange={this.handleRadioChange}
+                        />
+                        <Label htmlFor="optionTwo">...{
+                          value === "optionOne"
+                          ? optionOneText
+                          : optionTwoText
+                        }?</Label>
+                      </InputDiv>
+                    ))
+                  }
                 <Button />
               </form>
             )}
