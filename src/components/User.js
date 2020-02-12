@@ -23,6 +23,7 @@ const Score = styled.p`
   font-size: 1.2rem;
   color: red;
 `
+
 const Position = styled.div`
   border-radius: 50%;
   height: 60px;
