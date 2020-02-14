@@ -12,6 +12,7 @@ import Footer from './Footer'
 import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import { handleInitialData } from '../actions/shared'
+import PrivateRoute from './PrivateRoute'
 
 const PageContainer = styled.div`
   display: flex;
@@ -43,9 +44,9 @@ class App extends Component {
                   avatarURL={this.props.avatarURL}
                 />
                 <Route path="/" exact component={Home} />
-                <Route path="/add" exact component={NewQuestion} />
-                <Route path="/leaderboard" exact component={LeaderBoard} />
-                <Route path="/question/:question_id" component={QuestionPage} />
+                <PrivateRoute path="/add" exact component={NewQuestion} />
+                <PrivateRoute path="/leaderboard" exact component={LeaderBoard} />
+                <PrivateRoute path="/question/:question_id" component={QuestionPage} />
               </div>
             )}
           </ContentWraper>
