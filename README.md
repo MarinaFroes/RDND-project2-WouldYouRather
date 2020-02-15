@@ -10,8 +10,8 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - Git Style Guide
 
 ## Overview
-<!-- ADD PROJECT OVERVIEW -->
-![screenshot]()
+
+![screenshot](./src/images/ScreenShot.png)
 
 ## Udacity Specification
 
@@ -30,7 +30,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - [x] The application works correctly regardless of which user is selected.
 - [x] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
 - [x] Once the user logs in, the home page is shown.
-- [ ] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
+- [x] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
 
 ### Application Functionality
 
@@ -58,8 +58,8 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
   - [x] the number of people who voted for that option;
   - [x] the percentage of people who voted for that option.
 - [x] The option selected by the logged in user should be clearly marked.
-- [ ] When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
-- [ ] The application asks the user to sign in and shows a 404 page if that poll does not exist. 
+- [x] When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
+- [x] The application asks the user to sign in and shows a 404 page if that poll does not exist. 
 
 #### Voting mechanism
 - [x] Upon voting in a poll, all of the information of the answered poll is displayed.
