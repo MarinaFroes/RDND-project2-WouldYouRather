@@ -43,10 +43,10 @@ class App extends Component {
                   userName={this.props.userName}
                   avatarURL={this.props.avatarURL}
                 />
-                <Route path="/" exact component={Home} />
+                <PrivateRoute path="/" exact component={Home} />
                 <PrivateRoute path="/add" exact component={NewQuestion} />
                 <PrivateRoute path="/leaderboard" exact component={LeaderBoard} />
-                <PrivateRoute path="/question/:question_id" component={QuestionPage} />
+                  <PrivateRoute path="/question/:question_id" component={QuestionPage} />
               </div>
             )}
           </ContentWraper>
