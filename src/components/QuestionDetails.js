@@ -14,6 +14,14 @@ const CardContainer = styled.div`
   border-radius: 0.5rem;
   width: 50%;
   margin-top: 2rem;
+
+  @media only screen and (max-width: 700px){
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 500px){
+    width: 100%;
+  }
 `
 
 const QuestionDiv = styled.div`

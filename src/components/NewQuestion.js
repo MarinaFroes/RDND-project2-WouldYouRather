@@ -19,6 +19,14 @@ const CardContainer = styled.div`
   margin-top: 2rem;
   box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
   border-radius: 0.5rem;
+
+  @media only screen and (max-width: 700px){
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 500px){
+    width: 100%;
+  }s
 `
 
 const StyledDiv = styled.div`

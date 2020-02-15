@@ -9,9 +9,13 @@ const Title = styled.div`
   padding: 0 20px;
   background-color: ${props => props.titleColor || "#ccedd5"};
   border-radius: 0.5rem 0.5rem 0 0;
+
+  @media only screen and (max-width: 700px){
+    flex-direction: column;
+  }
 `
 
-const Date = styled.p`
+const StyledDate = styled.p`
   font-size: 0.8rem;
   color: #535454;
 `
@@ -24,7 +28,7 @@ function CardTitle({ titleColor, text, timestamp }) {
   return (
     <Title titleColor={titleColor} timestamp={timestamp}>
       <StyledText>{text}</StyledText>
-      {timestamp && <Date>Created on: {formatDate(timestamp)}</Date>}
+      {timestamp && <StyledDate>Created on: {formatDate(timestamp)}</StyledDate>}
     </Title>
   )
 }

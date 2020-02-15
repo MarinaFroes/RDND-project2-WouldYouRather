@@ -11,11 +11,16 @@ const CardContainer = styled.div`
   width: 50%;
   margin-top: 2rem;
   position: relative;
+
+  @media only screen and (max-width: 700px){
+    width: 80%;
+  }
 `
 
 const InfoDiv = styled.div`
   width: 100%;
   margin: 1rem;
+  flex-grow: 2;
 `
 
 const Score = styled.p`
@@ -24,7 +29,7 @@ const Score = styled.p`
   color: red;
 `
 
-const Position = styled.div`
+const Rank = styled.div`
   border-radius: 50%;
   height: 60px;
   width: 60px;
@@ -37,7 +42,7 @@ const Position = styled.div`
   align-items: center;
 `
 
-const StyledPosition = styled.p`
+const StyledRank = styled.p`
   font-size: 1.2rem;
   font-weight: bold;
 `
@@ -58,9 +63,9 @@ class User extends Component {
     
     return (
       <CardContainer>
-        <Position>
-          <StyledPosition>{position}</StyledPosition>
-        </Position>
+        <Rank>
+          <StyledRank>{position}</StyledRank>
+        </Rank>
         <UserInfo userName={user.name} avatarURL={user.avatarURL} />
         <InfoDiv>
           <h3>{user.name}</h3>

@@ -12,7 +12,8 @@ const UserDiv = styled.div`
 const StyledImg = styled.img`
   border-radius: 50%;
   padding: 0 20px;
-  height: 100px;
+  width: 50%;
+  flex-grow: 1;
 `
 
 function UserInfo({ avatarURL, userName }) {

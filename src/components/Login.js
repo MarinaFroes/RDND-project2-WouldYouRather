@@ -20,6 +20,14 @@ const CardContainer = styled.div`
   margin-top: 2rem;
   box-shadow: 4px 3px 14px 0 rgba(179, 179, 204, 1);
   border-radius: 0.5rem;
+
+  @media only screen and (max-width: 700px){
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 500px){
+    width: 100%;
+  }
 `
 
 const CardDiv = styled.div`
@@ -57,10 +65,23 @@ const StyledIcon = styled.div`
   border-right: 2px solid #e6e6e6;
   margin: 1rem 0;
   width: 30%;
+
+  @media only screen and (max-width: 700px){
+    font-size: 2rem;
+  }
 `
 
 const StyledSpan = styled.span`
   padding-right: 1rem;
+`
+
+const PageTitle = styled.h1`
+  font-size: 4rem;
+  margin: 1rem;
+
+  @media only screen and (max-width: 700px){
+    font-size: 2rem;
+  }
 `
 
 class Login extends Component {
@@ -89,7 +110,7 @@ class Login extends Component {
 
     return (
       <Main>
-        <h1>Would you rather game</h1>
+        <PageTitle>Would you rather game</PageTitle>
         <CardContainer>
           <CardTitle
             text={"Please, login to play the game: "}

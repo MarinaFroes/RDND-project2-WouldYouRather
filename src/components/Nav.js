@@ -10,6 +10,10 @@ const StyledNav = styled.nav`
   align-items: center;
   font-size: 1rem;
   font-weight: bold;
+
+  @media only screen and (max-width: 500px){
+    font-size: 0.8rem;
+  }
 `
 
 const StyledUl = styled.ul`
@@ -37,11 +41,19 @@ const StyledLink = styled(Link)`
 const StyledImg = styled.img`
   border-radius: 50%;
   height: 40px;
+
+  @media only screen and (max-width: 500px){
+    display: none;
+  }
 `
 
 const GreetingSpan = styled.span`
   font-weight: normal;
   padding: 10px;
+
+  @media only screen and (max-width: 500px){
+    display: none;
+  }
 `
 
 const UserDiv = styled.div`
@@ -62,6 +74,12 @@ const StyledButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #bfbfbf;
+  }
+
+  @media only screen and (max-width: 500px){
+    font-size: 0.8rem;
+    padding: 5px;
+    margin: 5px;
   }
 `
 
