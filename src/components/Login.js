@@ -76,11 +76,11 @@ const StyledSpan = styled.span`
 `
 
 const PageTitle = styled.h1`
-  font-size: 4rem;
+  font-size: 2rem;
   margin: 1rem;
 
   @media only screen and (max-width: 700px){
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `
 
@@ -92,7 +92,9 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(handleSetAuthedUser(this.state.value))
+    const { dispatch } = this.props
+
+    dispatch(handleSetAuthedUser(this.state.value))
     
     this.setState({
       value: ''

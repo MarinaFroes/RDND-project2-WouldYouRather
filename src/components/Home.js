@@ -42,12 +42,12 @@ const StyledIcon = styled.div`
 
 class Home extends Component {
   render() {
-    const { answered, unanswered } = this.props
+    const { answered, unanswered, loading } = this.props
   
     return (
       <>
         {
-          this.props.loading === true
+          loading === true
             ? <Login />
             : (
               <Tabs>

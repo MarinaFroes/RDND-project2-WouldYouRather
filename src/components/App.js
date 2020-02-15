@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -27,20 +27,22 @@ const ContentWraper = styled.div`
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    const { dispatch } = this.props
+    dispatch(handleInitialData())
   }
 
   render() {
-    
+    const { loading, userName, avatarURL } = this.props
+
     return (
       <Router>
         <PageContainer>
           <ContentWraper>
             {
-              this.props.loading === true || (
+              loading === true || (
                 <Nav
-                  userName={this.props.userName}
-                  avatarURL={this.props.avatarURL}
+                  userName={userName}
+                  avatarURL={avatarURL}
                 />
               )
             }
@@ -61,7 +63,6 @@ class App extends Component {
 
 function mapStateToProps({ authedUser, users }) {
   return {
-    authedUser,
     loading: authedUser === null,
     userName: authedUser !== null ? users[authedUser].name : 'there',
     avatarURL: authedUser !== null ? users[authedUser].avatarURL : null

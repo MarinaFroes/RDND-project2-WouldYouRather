@@ -83,12 +83,6 @@ const StyledButton = styled.button`
   }
 `
 
-const ErrorMessage = styled.p`
-  color: red;
-  font-weight: bold;
-  font-size: 1.5rem;
-`
-
 class Nav extends Component {
   
   handleClick = (e) => {
@@ -102,11 +96,7 @@ class Nav extends Component {
 
   render() {
     const { userName, avatarURL } = this.props
-    
-    if (!userName) {
-       return (<ErrorMessage>Error</ErrorMessage>)
-    }
-
+  
     return (
       <StyledNav>
       <StyledUl>
