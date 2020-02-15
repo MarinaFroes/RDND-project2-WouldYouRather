@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import styled from 'styled-components'
-import mylogo from '../components/icons/mylogo.svg'
+import mylogo from '../icons/mylogo.svg'
 
 const StyledFooter = styled.footer`
   display: flex;

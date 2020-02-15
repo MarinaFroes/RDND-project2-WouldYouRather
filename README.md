@@ -1,5 +1,5 @@
 
-![logo](./src/components/icons/mylogo.svg) 
+![logo](./src/icons/mylogo.svg) 
 # Would You Rather Project  
 ## Udacity React Developer Nanodegree Project 2 - Introduction
 
