@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { handleSetAuthedUser } from '../actions/authedUser'
+import { logout } from '../actions/authedUser'
 
 const StyledNav = styled.nav`
   display: flex;
@@ -75,8 +75,11 @@ class Nav extends Component {
   
   handleClick = (e) => {
     e.preventDefault()
+    const { dispatch, history } = this.props
 
-    this.props.dispatch(handleSetAuthedUser(null))
+    dispatch(logout())
+
+    history.push("/")
   }
 
   render() {
@@ -118,4 +121,4 @@ class Nav extends Component {
   }
 }
 
-export default connect()(Nav)
+export default withRouter(connect()(Nav))
