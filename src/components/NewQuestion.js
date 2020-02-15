@@ -66,11 +66,11 @@ class NewQuestion extends Component {
     dispatch(handleAddQuestion({ optionOneText, optionTwoText }))
     dispatch(handleUpdateUsers())
 
-    this.setState(prevState => ({
+    this.setState({
       optionOneText: '',
       optionTwoText: '',
-      toHome: !prevState.toHome
-    }))
+      toHome: true
+    })
   }
 
   render() {
