@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -13,6 +13,7 @@ import NewQuestion from './NewQuestion'
 import QuestionPage from './QuestionPage'
 import { handleInitialData } from '../actions/shared'
 import PrivateRoute from './PrivateRoute'
+import NotFound from './NotFound'
 
 const PageContainer = styled.div`
   display: flex;
@@ -42,11 +43,16 @@ class App extends Component {
                 <Nav
                   userName={this.props.userName}
                   avatarURL={this.props.avatarURL}
-                />
-                <PrivateRoute path="/" exact component={Home} />
-                <PrivateRoute path="/add" exact component={NewQuestion} />
-                <PrivateRoute path="/leaderboard" exact component={LeaderBoard} />
-                  <PrivateRoute path="/question/:question_id" component={QuestionPage} />
+                  />
+                  <Switch>
+                    <PrivateRoute path="/" exact component={Home} />
+                    <PrivateRoute path="/add" exact component={NewQuestion} />
+                    <PrivateRoute path="/leaderboard" exact component={LeaderBoard} />
+                    <PrivateRoute path="/question/:question_id" exact component={QuestionPage} />
+                    <Route component={NotFound} />
+                    <Redirect from="*" to="/" />
+                  </Switch>
+                
               </div>
             )}
           </ContentWraper>
