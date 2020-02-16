@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
@@ -47,41 +47,39 @@ const StyledRank = styled.p`
   font-weight: bold;
 `
 
-class User extends Component {
-  render() {
-    const { users, id, position } = this.props
+function User ({ users, id, position }) {
+  
 
-    if (!users) {
-      return <p>Users don't exist</p>
-    }
-
-    const user = users[id]
-
-    if (!user) {
-      return <p>This user doesn't exist</p>
-    }
-    
-    return (
-      <CardContainer>
-        <Rank>
-          <StyledRank>{position}</StyledRank>
-        </Rank>
-        <UserInfo userName={user.name} avatarURL={user.avatarURL} />
-        <InfoDiv>
-          <h3>{user.name}</h3>
-          <p>
-            Asked <strong>{user.questions.length}</strong> questions and
-            answered <strong>{Object.keys(user.answers).length}</strong>{" "}
-            questions
-          </p>
-          <Score>
-            Total Score:{" "}
-            {Object.keys(user.answers).length + user.questions.length}
-          </Score>
-        </InfoDiv>
-      </CardContainer>
-    )
+  if (!users) {
+    return <p>Users don't exist</p>
   }
+
+  const user = users[id]
+
+  if (!user) {
+    return <p>This user doesn't exist</p>
+  }
+  
+  return (
+    <CardContainer>
+      <Rank>
+        <StyledRank>{position}</StyledRank>
+      </Rank>
+      <UserInfo userName={user.name} avatarURL={user.avatarURL} />
+      <InfoDiv>
+        <h3>{user.name}</h3>
+        <p>
+          Asked <strong>{user.questions.length}</strong> questions and
+          answered <strong>{Object.keys(user.answers).length}</strong>{" "}
+          questions
+        </p>
+        <Score>
+          Total Score:{" "}
+          {Object.keys(user.answers).length + user.questions.length}
+        </Score>
+      </InfoDiv>
+    </CardContainer>
+  )
 }
 
 function mapStateToProps({ users }) {
