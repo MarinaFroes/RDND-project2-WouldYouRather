@@ -49,7 +49,6 @@ const StyledRank = styled.p`
 
 function User ({ users, id, position }) {
   
-
   if (!users) {
     return <p>Users don't exist</p>
   }
