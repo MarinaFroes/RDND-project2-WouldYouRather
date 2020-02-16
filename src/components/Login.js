@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { handleSetAuthedUser } from '../actions/authedUser'
 import { FaMapSigns } from 'react-icons/fa'
+import { Redirect  } from 'react-router-dom'
 
 import CardTitle from './CardTitle'
 
@@ -86,7 +87,8 @@ const PageTitle = styled.h1`
 
 class Login extends Component {
   state = {
-    value: ''
+    value: '',
+    redirectToReferrer: false
   }
 
   handleSubmit = (e) => {
@@ -97,7 +99,8 @@ class Login extends Component {
     dispatch(handleSetAuthedUser(this.state.value))
     
     this.setState({
-      value: ''
+      value: '',
+      redirectToReferrer: true
     })
   }
 
@@ -109,6 +112,12 @@ class Login extends Component {
 
   render() {
     const { usersIds } = this.props
+    const { redirectToReferrer } = this.state
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+
+    if(redirectToReferrer === true) {
+      return <Redirect to={from} />
+    }
 
     return (
       <Main>
@@ -152,4 +161,4 @@ function mapStateToProps({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Login) 
+export default connect(mapStateToProps)(Login)

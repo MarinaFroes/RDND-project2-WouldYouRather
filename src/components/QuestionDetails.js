@@ -76,6 +76,10 @@ class QuestionDetails extends Component {
       isAnswered
     } = this.props
 
+    if (question === null) {
+      return null
+    }
+
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
 
     const userAnswer = authedUserAnswers[question.id]
@@ -139,6 +143,12 @@ class QuestionDetails extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { qid }) {
   const question = questions[qid]
+
+  if (!question) {
+    return {
+      question: null
+    }
+  }
   const authorId = question.author
   const answeredIDs = Object.keys(users[authedUser].answers)
 

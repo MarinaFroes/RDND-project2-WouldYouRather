@@ -36,7 +36,7 @@ function NotFound() {
         <StyledH1>404</StyledH1>
       </StyledDiv>
       <Text>Sorry, this page doesn't exist</Text>
-      <Text>Go back to <a href="/">Home</a> page</Text>
+      <Text>Please <a href="/login">login</a> to continue</Text>
     </>
   )
 }

@@ -1,31 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 import QuestionDetails from './QuestionDetails'
+import NotFound from './NotFound'
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
 
 `
-const ErrorMessage = styled.h1`
-  color: red;
-`
 
 function QuestionPage (props) {
   
   const id = props.match.params.question_id
+  const question = props.questions[id]
+
+  if (!question) {
+    return <NotFound />
+  }
   
   return (
     <StyledDiv>
-      {id !== undefined ? (
-        <QuestionDetails qid={id} page="QuestionPage" />
-      ) : (
-        <ErrorMessage>Question not found</ErrorMessage>
-      )}
+      <QuestionDetails qid={id} page="QuestionPage" />
     </StyledDiv>
   )
   
 }
 
-export default QuestionPage
+function mapStateToProps({ questions }) {
+  return {
+    questions
+  }
+}
+
+export default connect(mapStateToProps)(QuestionPage)

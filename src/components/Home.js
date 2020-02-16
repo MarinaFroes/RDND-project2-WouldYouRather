@@ -7,7 +7,6 @@ import { GiGlassCelebration } from 'react-icons/gi'
 import { FaRegSadTear } from 'react-icons/fa'
 
 import Question from './Question'
-import Login from './Login'
 
 const StyledTabPanel = styled(TabPanel)`
   display: flex;
@@ -46,7 +45,7 @@ function Home({ answered, unanswered, loading }) {
     <>
       {
         loading === true
-          ? <Login />
+          ? null
           : (
             <Tabs>
               <TabList>

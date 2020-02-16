@@ -13,6 +13,7 @@ import QuestionPage from './QuestionPage'
 import { handleInitialData } from '../actions/shared'
 import PrivateRoute from './PrivateRoute'
 import NotFound from './NotFound'
+import Login from './Login'
 
 const PageContainer = styled.div`
   display: flex;
@@ -40,14 +41,12 @@ class App extends Component {
           <ContentWraper>
             {
               loading === true || (
-                <Nav
-                  userName={userName}
-                  avatarURL={avatarURL}
-                />
+                <Nav userName={userName} avatarURL={avatarURL} />
               )
             }
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/login" exact component={Login} />
+              <PrivateRoute path="/" exact component={Home} />
               <PrivateRoute path="/add" exact component={NewQuestion} />
               <PrivateRoute path="/leaderboard" exact component={LeaderBoard} />
               <PrivateRoute path="/question/:question_id" exact component={QuestionPage} />
