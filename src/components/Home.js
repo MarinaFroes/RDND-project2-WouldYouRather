@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
@@ -40,56 +40,54 @@ const StyledIcon = styled.div`
   margin: 1rem;
 `
 
-class Home extends Component {
-  render() {
-    const { answered, unanswered, loading } = this.props
+function Home({ answered, unanswered, loading }) {
   
-    return (
-      <>
-        {
-          loading === true
-            ? <Login />
-            : (
-              <Tabs>
-                <TabList>
-                  <Tab>Unanswered</Tab>
-                  <Tab>Answered</Tab>
-                </TabList>
-                <StyledTabPanel>
-                  {unanswered.length < 1 ? (
-                    <CardContainer>
-                      <StyledIcon>{<GiGlassCelebration />}</StyledIcon>
-                      <MessageText>Great! No unanswered questions for now</MessageText>
-                    </CardContainer>
-                  ) : (
-                      unanswered.map(qid => (
-                        <Question
-                          key={qid}
-                          qid={qid}
-                          page="HomePage"
-                          isAnswered={false}
-                        />
-                      ))
-                    )}
-                </StyledTabPanel>
-                <StyledTabPanel>
-                  {answered.length < 1 ? (
-                    <CardContainer>
-                      <StyledIcon>{<FaRegSadTear />}</StyledIcon>
-                      <MessageText>You didn't answer any question yet.</MessageText>
-                    </CardContainer>
-                  ) : (
-                      answered.map(qid => (
-                        <Question key={qid} qid={qid} page="HomePage" isAnswered={true} />
-                      ))
-                    )}
-                </StyledTabPanel>
-              </Tabs>
-            )
-        }
-      </>
-    )
-  }
+  return (
+    <>
+      {
+        loading === true
+          ? <Login />
+          : (
+            <Tabs>
+              <TabList>
+                <Tab>Unanswered</Tab>
+                <Tab>Answered</Tab>
+              </TabList>
+              <StyledTabPanel>
+                {unanswered.length < 1 ? (
+                  <CardContainer>
+                    <StyledIcon>{<GiGlassCelebration />}</StyledIcon>
+                    <MessageText>Great! No unanswered questions for now</MessageText>
+                  </CardContainer>
+                ) : (
+                    unanswered.map(qid => (
+                      <Question
+                        key={qid}
+                        qid={qid}
+                        page="HomePage"
+                        isAnswered={false}
+                      />
+                    ))
+                  )}
+              </StyledTabPanel>
+              <StyledTabPanel>
+                {answered.length < 1 ? (
+                  <CardContainer>
+                    <StyledIcon>{<FaRegSadTear />}</StyledIcon>
+                    <MessageText>You didn't answer any question yet.</MessageText>
+                  </CardContainer>
+                ) : (
+                    answered.map(qid => (
+                      <Question key={qid} qid={qid} page="HomePage" isAnswered={true} />
+                    ))
+                  )}
+              </StyledTabPanel>
+            </Tabs>
+          )
+      }
+    </>
+  )
+  
 }
 
 function mapStateToProps({ authedUser, users, questions }) {
