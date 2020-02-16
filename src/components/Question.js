@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
@@ -30,33 +30,29 @@ const StyledDiv = styled.div`
   padding: 1rem;
 `
 
-class Question extends Component {
+function Question({ avatarURL, userName, question, isAnswered }){
   
-  render(){
-    const { avatarURL, userName, question, isAnswered } = this.props
-    
-    return (
-      <CardContainer id={question.id}>
-        <CardTitle
-          text={`${userName} asks:`}
-          titleColor={isAnswered && "#e6e6e6"}
-          timestamp={question.timestamp}
-        />
-        <StyledDiv>
-          <UserInfo userName={userName} avatarURL={avatarURL} />
-          <QuestionDiv>
-            <h3>Would you rather...</h3>
-            <QuestionPreview
-              optionOneText={question.optionOne.text}
-              optionTwoText={question.optionTwo.text}
-              id={question.id}
-              isAnswered={isAnswered}
-            />
-          </QuestionDiv>
-        </StyledDiv>
-      </CardContainer>
-    )
-  }
+  return (
+    <CardContainer id={question.id}>
+      <CardTitle
+        text={`${userName} asks:`}
+        titleColor={isAnswered && "#e6e6e6"}
+        timestamp={question.timestamp}
+      />
+      <StyledDiv>
+        <UserInfo userName={userName} avatarURL={avatarURL} />
+        <QuestionDiv>
+          <h3>Would you rather...</h3>
+          <QuestionPreview
+            optionOneText={question.optionOne.text}
+            optionTwoText={question.optionTwo.text}
+            id={question.id}
+            isAnswered={isAnswered}
+          />
+        </QuestionDiv>
+      </StyledDiv>
+    </CardContainer>
+  )
 }
 
 function mapStateToProps({ users, questions }, { qid }) {
