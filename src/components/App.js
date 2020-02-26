@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -36,7 +36,7 @@ class App extends Component {
     const { loading, userName, avatarURL } = this.props
 
     return (
-      <Router>
+      <Router basename='/'>
         <PageContainer>
           <ContentWraper>
             {
