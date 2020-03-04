@@ -8,8 +8,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 - Git Style Guide
 
 ## Overview
-
-<img src="./src/images/ScreenShot.png" align="center" />
+<p align="center"><img src="./src/images/ScreenShot.png" align="center" /></p>
 
 ## Udacity Specification
 
