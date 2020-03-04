@@ -9,7 +9,7 @@ This app is the second project of the Udacity React Developer Nanodegree and fol
 
 ## Overview
 
-![screenshot](./src/images/ScreenShot.png)
+<img src="./src/images/ScreenShot.png" align="center" />
 
 ## Udacity Specification
 
