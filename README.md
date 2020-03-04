@@ -1,7 +1,5 @@
-
-![logo](./src/icons/mylogo.svg) 
-# Would You Rather Project  
-## Udacity React Developer Nanodegree Project 2 - Introduction
+<p align="center"><a href="https://marinafroes.github.io/RDND-project2-WouldYouRather/#/login" target="_blank"><img src="./src/icons/mylogo.svg" alt="logo" title="logo" width="80"></a></p>
+<h1 align="center">Would You Rather Project </h1>
 
 This app is the second project of the Udacity React Developer Nanodegree and follows the "Would You Rather project specification" listed bellow and all the style guides provided by Udacity:
 - CSS Style Guide
